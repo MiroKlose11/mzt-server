@@ -1,0 +1,103 @@
+spring:
+  application:
+    # 应用名称
+    name: cms-mzt
+  output:
+    ansi:
+      # 启用控制台彩色输出
+      enabled: ALWAYS
+  # 数据源配置
+  datasource:
+    # 数据库驱动类名
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库连接URL
+    url: jdbc:mysql://localhost:3306/mzt?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+    # 数据库用户名
+    username: root
+    # 数据库密码
+    password: root
+    # Druid连接池配置
+    druid:
+      # 初始连接数
+      initial-size: 2
+      # 最小连接池数量
+      min-idle: 2
+      # 最大连接池数量
+      max-active: 20
+      # 配置获取连接等待超时的时间(毫秒)
+      max-wait: 60000
+      # 检测关闭空闲连接的间隔时间(毫秒)
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间(毫秒)
+      min-evictable-idle-time-millis: 300000
+      # 用来验证数据库连接的查询语句
+      validation-query: SELECT 1
+      # 建议配置为true，不影响性能，并且保证安全性
+      test-while-idle: true
+      # 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-borrow: false
+      # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-return: false
+      # 是否缓存preparedStatement，也就是PSCache
+      pool-prepared-statements: true
+      # 配置监控统计拦截的filters
+      filters: stat,wall
+      # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true
+      max-pool-prepared-statement-per-connection-size: 20
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+      # 配置监控界面
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        # IP白名单(没有配置或者为空，则允许所有访问)
+        allow: 127.0.0.1
+        # IP黑名单 (存在共同时，deny优先于allow)
+        deny: 
+        # 禁用HTML页面上的"Reset All"功能
+        reset-enable: false
+        # 登录名
+        login-username: admin
+        # 登录密码
+        login-password: 123456
+
+# MyBatis Plus配置
+mybatis-plus:
+  # MyBatis映射文件位置
+  mapper-locations: classpath:mapper/**/*.xml
+  # MyBatis扫描别名包，和注解@Alias联用
+  type-aliases-package: com.example.cms_mzt.entity
+  configuration:
+    # 是否开启自动驼峰命名规则映射
+    map-underscore-to-camel-case: true
+    # 开启MyBatis SQL日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 全局逻辑删除的实体字段名
+      logic-delete-field: deleted
+      # 逻辑已删除值
+      logic-delete-value: 1
+      # 逻辑未删除值
+      logic-not-delete-value: 0
+      # 主键类型
+      id-type: assign_id
+
+# 服务器配置
+server:
+  # 服务端口
+  port: 8080
+
+# 日志配置
+logging:
+  level:
+    # 默认日志级别
+    root: info
+    # 项目日志级别
+    com.example.cms_mzt: debug 
