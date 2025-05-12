@@ -31,12 +31,12 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             // 配置请求授权
             .authorizeHttpRequests(auth -> auth
-                // 允许所有静态资源请求
-                .requestMatchers("/static/**").permitAll()
                 // 允许Druid监控页面请求
                 .requestMatchers("/druid/**").permitAll()
                 // 允许首页相关接口
                 .requestMatchers("/index/**").permitAll()
+                // 允许Swagger/Knife4j接口文档
+                .requestMatchers("/doc.html", "/webjars/**", "/v3/api-docs/**").permitAll()
                 // 其他请求需要认证
                 .anyRequest().authenticated()
             );

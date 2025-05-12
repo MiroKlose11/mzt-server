@@ -67,10 +67,27 @@ spring:
         # 登录密码
         login-password: 123456
 
+# Knife4j配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    enabled: true
+  group-configs:
+    - group: '首页接口'
+      paths-to-match: '/index/**'
+    - group: '系统管理接口'
+      paths-to-match: '/admin/**'
+  default-flat-param-object: true
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    swagger-model-name: 实体类列表
+
 # MyBatis Plus配置
 mybatis-plus:
-  # MyBatis映射文件位置
-  mapper-locations: classpath:mapper/**/*.xml
   # MyBatis扫描别名包，和注解@Alias联用
   type-aliases-package: com.example.cms_mzt.entity
   configuration:

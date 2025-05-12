@@ -1,78 +1,92 @@
 # 美职通CMS后台管理系统
 
-美职通CMS后台管理系统是一个基于Spring Boot + MyBatis Plus + Spring Security开发的医美行业职业规范与培训平台的后台管理系统。
-
-## 项目介绍
-
-美职通平台是一个全国医美执业规范与职业发展平台，主要致力于医美行业职业发展，包含人才测评、能力认证、职业转型、职业生涯规划、IP打造、教育培训、就业指导、定向委培、劳务派遣等业务。
+这是美职通CMS后台管理系统的服务端项目，提供首页相关API接口服务。
 
 ## 技术栈
 
-- **后端框架**：Spring Boot 3.4.5
-- **ORM框架**：MyBatis Plus 3.5.4.1
-- **安全框架**：Spring Security
-- **数据库**：MySQL 8.0
-- **数据库连接池**：Druid 1.2.21
-- **项目管理工具**：Maven
+- Spring Boot 3.1.4
+- Spring Security
+- MyBatis-Plus 3.5.3.1
+- MySQL 8.1.0
+- Knife4j (Swagger)
 
 ## 项目结构
 
 ```
-cms-mzt
-├── src/main/java/com/example/cms_mzt
-│   ├── common          // 通用类
-│   ├── config          // 配置类
-│   ├── controller      // 控制器
-│   ├── entity          // 实体类
-│   ├── mapper          // 数据访问层
-│   ├── service         // 服务接口
-│   │   └── impl        // 服务实现
-│   └── CmsMztApplication.java  // 启动类
-├── src/main/resources
-│   ├── mapper          // MyBatis XML映射文件
-│   ├── static          // 静态资源
-│   ├── templates       // 模板文件
-│   ├── application.yml // 应用配置文件
-│   └── banner.sql      // 数据库脚本
-└── pom.xml             // Maven依赖
+src/main/
+├── java/com/example/cms_mzt/
+│   ├── common/          - 通用工具类和常量
+│   ├── config/          - 配置类
+│   ├── controller/      - 控制器
+│   ├── entity/          - 实体类
+│   ├── mapper/          - 数据访问层
+│   ├── service/         - 服务层
+│   └── CmsMztApplication.java - 应用启动类
+├── resources/
+    ├── docs/            - 文档
+    │   ├── index-api.md - 首页API接口文档
+    │   └── sql/         - SQL脚本
+    │       ├── banner.sql        - Banner表SQL
+    │       └── category_item.sql - 分类条目表SQL
+    └── application.yml  - 应用配置文件
 ```
 
-## 项目启动
+## 主要功能
 
-### 1. 数据库准备
+- 首页Banner管理
+- 首页分类条目管理（服务项目、执业规范平台、主推课程、岗位百科）
 
-创建名为`cms_mzt`的数据库，执行`src/main/resources/banner.sql`脚本创建表和初始数据。
+## 接口设计
 
-```sql
-CREATE DATABASE cms_mzt CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-```
+本项目采用REST风格的API设计，所有首页相关接口均通过`/index`统一入口提供：
 
-### 2. 修改配置
+- `/index/banner/top` - 获取顶部Banner
+- `/index/banner/introduction` - 获取平台介绍Banner
+- `/index/category?type=xxx` - 获取指定类型的分类数据
+- `/index/categories` - 获取所有分类数据
+- `/index/all` - 一次性获取所有首页数据
 
-根据实际情况修改`application.yml`中的数据库连接信息：
+更多接口详情请参考 `docs/index-api.md` 文档。
 
-```yaml
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/cms_mzt?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
-    username: root
-    password: 123456
-```
+## 快速开始
 
-### 3. 启动应用
+1. 创建MySQL数据库并导入SQL脚本：
+   ```sql
+   -- 创建数据库
+   CREATE DATABASE mzt CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+   
+   -- 导入SQL脚本
+   source /path/to/banner.sql
+   source /path/to/category_item.sql
+   ```
 
-```bash
-mvn spring-boot:run
-```
+2. 配置数据库连接信息：
+   修改 `application.yml` 中的数据库连接信息：
+   ```yaml
+   spring:
+     datasource:
+       url: jdbc:mysql://localhost:3306/mzt?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+       username: yourUsername
+       password: yourPassword
+   ```
 
-## 接口说明
+3. 启动应用：
+   ```bash
+   mvn spring-boot:run
+   ```
 
-### 1. Banner接口
+4. 访问API文档：
+   ```
+   http://localhost:8080/doc.html
+   ```
 
-#### 顶部Banner轮播图
-- 接口路径：`GET /api/home/banners`
-- 返回数据：顶部Banner轮播图列表
+## 开发环境
 
-#### 平台介绍Banner轮播图
-- 接口路径：`GET /api/home/introduction-banners`
-- 返回数据：平台介绍Banner轮播图列表 
+- JDK 21
+- Maven 3.8+
+- MySQL 8+
+- IDE: IntelliJ IDEA 或 Eclipse
+
+## 贡献者
+
+- miro 
