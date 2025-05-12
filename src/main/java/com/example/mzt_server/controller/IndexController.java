@@ -1,10 +1,10 @@
-package com.example.cms_mzt.controller;
+package com.example.mzt_server.controller;
 
-import com.example.cms_mzt.common.Result;
-import com.example.cms_mzt.entity.Banner;
-import com.example.cms_mzt.entity.CategoryItem;
-import com.example.cms_mzt.service.BannerService;
-import com.example.cms_mzt.service.CategoryItemService;
+import com.example.mzt_server.common.Result;
+import com.example.mzt_server.entity.Banner;
+import com.example.mzt_server.entity.CategoryItem;
+import com.example.mzt_server.service.BannerService;
+import com.example.mzt_server.service.CategoryItemService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;

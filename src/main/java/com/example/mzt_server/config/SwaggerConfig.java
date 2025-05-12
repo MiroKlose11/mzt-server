@@ -1,4 +1,4 @@
-package com.example.cms_mzt.config;
+package com.example.mzt_server.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -20,8 +20,8 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("美职通CMS API文档")
-                        .description("美职通CMS后台管理系统接口文档")
+                        .title("美职通 API文档")
+                        .description("美职通平台系统接口文档")
                         .version("v1.0")
                         .contact(new Contact()
                                 .name("miro")

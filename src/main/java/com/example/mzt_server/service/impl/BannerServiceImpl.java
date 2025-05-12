@@ -1,10 +1,10 @@
-package com.example.cms_mzt.service.impl;
+package com.example.mzt_server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.cms_mzt.entity.Banner;
-import com.example.cms_mzt.mapper.BannerMapper;
-import com.example.cms_mzt.service.BannerService;
+import com.example.mzt_server.entity.Banner;
+import com.example.mzt_server.mapper.BannerMapper;
+import com.example.mzt_server.service.BannerService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

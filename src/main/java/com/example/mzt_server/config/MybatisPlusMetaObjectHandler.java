@@ -1,4 +1,4 @@
-package com.example.cms_mzt.config;
+package com.example.mzt_server.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;

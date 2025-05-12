@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>cms-mzt</artifactId>
+	<artifactId>mzt-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cms-mzt</name>
+	<name>mzt-server</name>
 	<description>美职通CMS后台管理系统</description>
 	<url/>
 	<licenses>
@@ -136,8 +136,15 @@
 		<!-- Knife4j（Swagger增强版） -->
 		<dependency>
 			<groupId>com.github.xiaoymin</groupId>
-			<artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
+			<artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
 			<version>4.3.0</version>
+		</dependency>
+		
+		<!-- Jakarta Servlet API -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
@@ -177,3 +184,4 @@
 	</build>
 
 </project>
+

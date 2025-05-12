@@ -1,10 +1,10 @@
-package com.example.cms_mzt.service.impl;
+package com.example.mzt_server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.cms_mzt.entity.CategoryItem;
-import com.example.cms_mzt.mapper.CategoryItemMapper;
-import com.example.cms_mzt.service.CategoryItemService;
+import com.example.mzt_server.entity.CategoryItem;
+import com.example.mzt_server.mapper.CategoryItemMapper;
+import com.example.mzt_server.service.CategoryItemService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.cms_mzt.entity;
+package com.example.mzt_server.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

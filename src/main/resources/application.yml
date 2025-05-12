@@ -1,7 +1,7 @@
 spring:
   application:
     # 应用名称
-    name: cms-mzt
+    name: mzt-server
   output:
     ansi:
       # 启用控制台彩色输出
@@ -89,7 +89,7 @@ knife4j:
 # MyBatis Plus配置
 mybatis-plus:
   # MyBatis扫描别名包，和注解@Alias联用
-  type-aliases-package: com.example.cms_mzt.entity
+  type-aliases-package: com.example.mzt_server.entity
   configuration:
     # 是否开启自动驼峰命名规则映射
     map-underscore-to-camel-case: true
@@ -117,4 +117,4 @@ logging:
     # 默认日志级别
     root: info
     # 项目日志级别
-    com.example.cms_mzt: debug 
+    com.example.mzt_server: debug 

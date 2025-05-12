@@ -1,7 +1,7 @@
-package com.example.cms_mzt.mapper;
+package com.example.mzt_server.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.cms_mzt.entity.CategoryItem;
+import com.example.mzt_server.entity.CategoryItem;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

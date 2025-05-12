@@ -1,7 +1,7 @@
-package com.example.cms_mzt.service;
+package com.example.mzt_server.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.cms_mzt.entity.CategoryItem;
+import com.example.mzt_server.entity.CategoryItem;
 import java.util.List;
 
 /**
@@ -14,4 +14,4 @@ public interface CategoryItemService extends IService<CategoryItem> {
      * @return 条目列表
      */
     List<CategoryItem> getItemsByCategoryType(String categoryType);
-} 
+}

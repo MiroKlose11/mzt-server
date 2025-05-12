@@ -1,4 +1,4 @@
-package com.example.cms_mzt.common;
+package com.example.mzt_server.common;
 
 /**
  * 状态码枚举类

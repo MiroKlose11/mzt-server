@@ -1,7 +1,7 @@
-package com.example.cms_mzt.service;
+package com.example.mzt_server.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.cms_mzt.entity.Banner;
+import com.example.mzt_server.entity.Banner;
 
 import java.util.List;
 
