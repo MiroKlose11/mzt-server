@@ -66,7 +66,7 @@ spring:
         login-username: admin
         # 登录密码
         login-password: 123456
-        # Redis配置
+      # Redis配置
   redis:
       # 地址
       host: localhost
@@ -99,6 +99,8 @@ springdoc:
       paths-to-match: '/index/**'
     - group: '系统管理接口'
       paths-to-match: '/admin/**'
+    - group: '认证接口'
+      paths-to-match: '/api/auth/**'
   default-flat-param-object: true
 
 knife4j:
@@ -138,4 +140,13 @@ logging:
     # 默认日志级别
     root: info
     # 项目日志级别
-    com.example.mzt_server: debug 
+    com.example.mzt_server: debug
+
+# JWT配置
+jwt:
+  # 密钥
+  secret: 8Kw5NIx5qqZS5ASytOuDcQ9cDXG1FSG8D3qr7D21HfI
+  # 访问令牌过期时间(秒)
+  access-token-expiration: 1800
+  # 刷新令牌过期时间(秒)
+  refresh-token-expiration: 604800

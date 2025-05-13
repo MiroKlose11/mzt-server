@@ -60,8 +60,8 @@ public class IndexController {
     public Result<List<CategoryItem>> getCategoryItems(
             @Parameter(description = "分类类型(service/platform/course/job)") 
             @RequestParam String type) {
-        List<CategoryItem> items = categoryItemService.getItemsByCategoryType(type);
-        return Result.success(items);
+        // 重定向到新的CategoryItemController
+        return Result.success(categoryItemService.getItemsByCategoryType(type));
     }
     
     /**

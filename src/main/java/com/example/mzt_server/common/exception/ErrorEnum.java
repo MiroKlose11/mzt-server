@@ -1,0 +1,81 @@
+package com.example.mzt_server.common.exception;
+
+import lombok.Getter;
+
+/**
+ * 错误枚举
+ */
+@Getter
+public enum ErrorEnum {
+
+    /**
+     * 系统错误
+     */
+    SYSTEM_ERROR("B0001", "系统异常"),
+
+    /**
+     * 参数错误
+     */
+    PARAM_ERROR("A0001", "参数错误"),
+
+    /**
+     * 用户不存在
+     */
+    USER_NOT_FOUND("A0002", "用户不存在"),
+
+    /**
+     * 用户名或密码错误
+     */
+    USERNAME_PASSWORD_ERROR("A0003", "用户名或密码错误"),
+
+    /**
+     * 验证码错误
+     */
+    CAPTCHA_ERROR("A0004", "验证码错误或已过期"),
+
+    /**
+     * 账号已被禁用
+     */
+    ACCOUNT_DISABLED("A0005", "账号已被禁用"),
+
+    /**
+     * 无效的令牌
+     */
+    INVALID_TOKEN("A0006", "无效的令牌"),
+
+    /**
+     * 令牌已过期
+     */
+    TOKEN_EXPIRED("A0007", "令牌已过期"),
+
+    /**
+     * 没有权限
+     */
+    NO_PERMISSION("A0008", "没有权限"),
+
+    /**
+     * 未授权
+     */
+    UNAUTHORIZED("A0009", "未授权");
+
+    /**
+     * 错误码
+     */
+    private final String code;
+
+    /**
+     * 错误消息
+     */
+    private final String message;
+
+    /**
+     * 构造函数
+     *
+     * @param code 错误码
+     * @param message 错误消息
+     */
+    ErrorEnum(String code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+} 

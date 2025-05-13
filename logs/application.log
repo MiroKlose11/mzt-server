@@ -1,0 +1,663 @@
+2025-05-13 17:58:10.828 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 24044 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 17:58:10.830 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 17:58:10.831 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 17:58:10.956 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 17:58:10.957 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 17:58:10.972 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-05-13 17:58:11.027 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 17:58:11.027 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 17:58:11.027 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 17:58:11.060 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 17:58:11.060 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 228 ms
+2025-05-13 17:58:11.069 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 17:58:11.174 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e2ec28b8-23c3-4fe6-87dc-a3ba626062b4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 17:58:11.660 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1e66d8ac, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68ed2225, org.springframework.security.web.context.SecurityContextHolderFilter@7e93cf5b, org.springframework.security.web.header.HeaderWriterFilter@26394eb7, org.springframework.security.web.authentication.logout.LogoutFilter@2e9b1cd1, com.example.mzt_server.security.JwtAuthenticationFilter@ec551a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77b80c03, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1b18b8b5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@578e0e50, org.springframework.security.web.session.SessionManagementFilter@6c273f16, org.springframework.security.web.access.ExceptionTranslationFilter@751ce64, org.springframework.security.web.access.intercept.AuthorizationFilter@47770b8e]
+2025-05-13 17:58:11.692 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 17:58:11.698 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 17:58:11.700 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 0.954 seconds (process running for 343.609)
+2025-05-13 17:58:11.702 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 17:58:49.930 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 33916 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 17:58:49.931 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 17:58:49.932 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 17:58:49.989 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-13 17:58:49.989 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-13 17:58:50.851 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 17:58:50.853 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 17:58:50.880 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-05-13 17:58:51.712 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 17:58:51.722 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 17:58:51.723 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 17:58:51.806 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 17:58:51.811 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1822 ms
+2025-05-13 17:58:51.885 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 17:58:52.783 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 277e5861-b1a8-41c8-9dd9-c40dc9394129
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 17:58:53.792 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4e5bc94d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58f5d2bc, org.springframework.security.web.context.SecurityContextHolderFilter@e078f53, org.springframework.security.web.header.HeaderWriterFilter@465ade96, org.springframework.security.web.authentication.logout.LogoutFilter@29776f79, com.example.mzt_server.security.JwtAuthenticationFilter@69424ecb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@14c90a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f495719, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c7fa79f, org.springframework.security.web.session.SessionManagementFilter@2c6235e3, org.springframework.security.web.access.ExceptionTranslationFilter@e4df0ef, org.springframework.security.web.access.intercept.AuthorizationFilter@736cba80]
+2025-05-13 17:58:54.375 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 17:58:54.416 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 17:58:54.425 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 4.999 seconds (process running for 5.468)
+2025-05-13 17:59:16.955 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 32148 (E:\Projects\mzt-server\target\classes started by Miro in E:\Projects\mzt-server)
+2025-05-13 17:59:16.956 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 17:59:16.956 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 17:59:17.014 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-13 17:59:17.014 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-13 17:59:17.843 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 17:59:17.843 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 17:59:17.873 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2025-05-13 17:59:18.704 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 17:59:18.717 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 17:59:18.717 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 17:59:18.797 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 17:59:18.797 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1780 ms
+2025-05-13 17:59:18.867 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 17:59:19.779 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e1f5dee8-df45-4d0f-979f-9d9dbf97c7a7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 17:59:20.868 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@21fb901d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e342975, org.springframework.security.web.context.SecurityContextHolderFilter@62e452f9, org.springframework.security.web.header.HeaderWriterFilter@318f6b2a, org.springframework.security.web.authentication.logout.LogoutFilter@53244893, com.example.mzt_server.security.JwtAuthenticationFilter@1c02c481, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c138c5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24277353, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6509632b, org.springframework.security.web.session.SessionManagementFilter@52e8dcab, org.springframework.security.web.access.ExceptionTranslationFilter@3d658fb, org.springframework.security.web.access.intercept.AuthorizationFilter@34ef7dfa]
+2025-05-13 17:59:21.413 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 17:59:21.475 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 17:59:21.484 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 5.019 seconds (process running for 5.503)
+2025-05-13 17:59:41.773 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-13 17:59:41.773 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-13 17:59:41.773 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-05-13 17:59:46.424 [http-nio-8080-exec-2] WARN  c.b.m.c.t.support.ReflectLambdaMeta - Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @63057a2c
+2025-05-13 17:59:46.440 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-13 17:59:46.688 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@24310f2
+2025-05-13 17:59:46.689 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-13 17:59:46.842 [http-nio-8080-exec-2] WARN  c.e.m.c.e.GlobalExceptionHandler - 业务异常: 用户名或密码错误
+2025-05-13 17:59:46.844 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.example.mzt_server.common.exception.BusinessException: 用户名或密码错误]
+2025-05-13 18:14:23.004 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 14804 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:14:23.005 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:14:23.005 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:14:23.150 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:14:23.151 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:14:23.155 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:14:23.232 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:14:23.232 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:14:23.233 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:14:23.265 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:14:23.265 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 258 ms
+2025-05-13 18:14:23.273 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:14:23.424 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e46b17d2-961a-49b6-8c6a-a7a2a53e6ee7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:14:23.936 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@11df9a67, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41f6472e, org.springframework.security.web.context.SecurityContextHolderFilter@95830bd, org.springframework.security.web.header.HeaderWriterFilter@7297ea54, org.springframework.security.web.authentication.logout.LogoutFilter@284f06d4, com.example.mzt_server.security.JwtAuthenticationFilter@1cc776b8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e011f92, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33099f4c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3cc174a1, org.springframework.security.web.session.SessionManagementFilter@57708e01, org.springframework.security.web.access.ExceptionTranslationFilter@262a3094, org.springframework.security.web.access.intercept.AuthorizationFilter@21c876ab]
+2025-05-13 18:14:23.966 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:14:23.981 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:14:23.985 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 1.059 seconds (process running for 96.414)
+2025-05-13 18:14:23.986 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 18:14:34.574 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-13 18:14:34.580 [Thread-11] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-13 18:14:34.645 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 14804 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:14:34.645 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:14:34.645 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:14:34.780 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:14:34.780 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:14:34.785 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:14:34.850 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:14:34.852 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:14:34.852 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:14:34.886 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:14:34.887 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 242 ms
+2025-05-13 18:14:34.893 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:14:34.991 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f50292ef-72ef-4852-b2b0-ca5f9a059973
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:14:35.440 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d9b1c41, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@389c9fd8, org.springframework.security.web.context.SecurityContextHolderFilter@2fbbeff4, org.springframework.security.web.header.HeaderWriterFilter@54d371e1, org.springframework.security.web.authentication.logout.LogoutFilter@3a37e6ac, com.example.mzt_server.security.JwtAuthenticationFilter@3e58451c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35f56325, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ae64003, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36631f39, org.springframework.security.web.session.SessionManagementFilter@22a24ef6, org.springframework.security.web.access.ExceptionTranslationFilter@427b05fb, org.springframework.security.web.access.intercept.AuthorizationFilter@6cebec57]
+2025-05-13 18:14:35.471 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:14:35.477 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:14:35.478 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 0.857 seconds (process running for 107.907)
+2025-05-13 18:14:35.479 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 18:14:44.095 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-05-13 18:14:44.101 [Thread-18] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-13 18:14:44.164 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 14804 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:14:44.164 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:14:44.164 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:14:44.280 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:14:44.280 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:14:44.285 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:14:44.296 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'characterEncodingFilter' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/HttpEncodingAutoConfiguration.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration; factoryMethodName=characterEncodingFilter; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/HttpEncodingAutoConfiguration.class]] for bean 'characterEncodingFilter' since there is already [Generic bean: class [com.example.mzt_server.filter.CharacterEncodingFilter]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null; defined in file [E:\Projects\mzt-server\target\classes\com\example\mzt_server\filter\CharacterEncodingFilter.class]] bound.
+2025-05-13 18:14:44.296 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-13 18:14:44.300 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'characterEncodingFilter', defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/HttpEncodingAutoConfiguration.class], could not be registered. A bean with that name has already been defined in file [E:\Projects\mzt-server\target\classes\com\example\mzt_server\filter\CharacterEncodingFilter.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2025-05-13 18:15:10.647 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-13 18:15:10.678 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 1956 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:15:10.678 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:15:10.678 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:15:10.727 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-13 18:15:10.729 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-13 18:15:11.577 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:15:11.580 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:15:11.606 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:15:11.670 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'characterEncodingFilter' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/HttpEncodingAutoConfiguration.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration; factoryMethodName=characterEncodingFilter; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/HttpEncodingAutoConfiguration.class]] for bean 'characterEncodingFilter' since there is already [Generic bean: class [com.example.mzt_server.filter.CharacterEncodingFilter]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null; defined in file [E:\Projects\mzt-server\target\classes\com\example\mzt_server\filter\CharacterEncodingFilter.class]] bound.
+2025-05-13 18:15:11.696 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-13 18:15:11.715 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'characterEncodingFilter', defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/HttpEncodingAutoConfiguration.class], could not be registered. A bean with that name has already been defined in file [E:\Projects\mzt-server\target\classes\com\example\mzt_server\filter\CharacterEncodingFilter.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2025-05-13 18:17:53.279 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-13 18:17:53.332 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 34544 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:17:53.332 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:17:53.334 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:17:53.387 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-13 18:17:53.387 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-13 18:17:54.293 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:17:54.296 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:17:54.323 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:17:55.250 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:17:55.258 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:17:55.260 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:17:55.261 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:17:55.345 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:17:55.345 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1957 ms
+2025-05-13 18:17:55.407 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:17:55.410 [restartedMain] DEBUG c.e.m.f.CustomCharacterEncodingFilter - Filter 'customCharacterEncodingFilter' configured for use
+2025-05-13 18:17:56.458 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 0db90daf-6470-44ec-b3bb-1aeb48304416
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:17:57.731 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c41dedb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@157d0703, org.springframework.security.web.context.SecurityContextHolderFilter@1968fdda, org.springframework.security.web.header.HeaderWriterFilter@55574098, org.springframework.security.web.authentication.logout.LogoutFilter@2208f452, com.example.mzt_server.security.JwtAuthenticationFilter@6f0ca609, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@55b4e8ca, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e93da4a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7db4424d, org.springframework.security.web.session.SessionManagementFilter@4aab10ea, org.springframework.security.web.access.ExceptionTranslationFilter@39818521, org.springframework.security.web.access.intercept.AuthorizationFilter@350b8bc3]
+2025-05-13 18:17:58.199 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:17:58.208 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:17:58.237 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:17:58.247 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 5.421 seconds (process running for 5.883)
+2025-05-13 18:18:03.819 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-13 18:18:03.819 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-13 18:18:03.819 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-05-13 18:18:06.604 [http-nio-8080-exec-2] WARN  c.e.m.c.e.GlobalExceptionHandler - 业务异常: 验证码错误或已过期
+2025-05-13 18:18:06.607 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.example.mzt_server.common.exception.BusinessException: 验证码错误或已过期]
+2025-05-13 18:18:15.325 [http-nio-8080-exec-4] WARN  c.b.m.c.t.support.ReflectLambdaMeta - Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @715487f1
+2025-05-13 18:18:15.340 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-13 18:18:15.613 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@39a392ea
+2025-05-13 18:18:15.614 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-13 18:18:15.788 [http-nio-8080-exec-4] WARN  c.e.m.c.e.GlobalExceptionHandler - 业务异常: 用户名或密码错误
+2025-05-13 18:18:15.788 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.example.mzt_server.common.exception.BusinessException: 用户名或密码错误]
+2025-05-13 18:19:06.350 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-13 18:19:06.357 [Thread-6] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:06.357 [Thread-6] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-13 18:19:06.359 [Thread-6] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-05-13 18:19:06.360 [Thread-6] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-nioEventLoop-4-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/sun.nio.ch.WEPoll.wait(Native Method)
+ java.base/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+ java.base/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+ java.base/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:147)
+ io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:68)
+ io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:879)
+ io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:526)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:19:06.360 [Thread-6] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-1-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:19:06.360 [Thread-6] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-1-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:19:06.361 [Thread-6] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-1-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:19:06.361 [Thread-6] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-1-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:19:06.361 [Thread-6] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-1-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:19:06.362 [Thread-6] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:19:06.362 [Thread-6] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-1-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:19:06.363 [Thread-6] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:06.365 [Thread-6] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:06.493 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-13 18:19:06.498 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-13 18:19:06.567 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 34544 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:19:06.567 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:19:06.567 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:19:06.736 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:19:06.737 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:19:06.742 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:19:06.834 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:19:06.834 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:06.835 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:19:06.835 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:19:06.870 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:19:06.871 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 301 ms
+2025-05-13 18:19:06.879 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:19:06.879 [restartedMain] DEBUG c.e.m.f.CustomCharacterEncodingFilter - Filter 'customCharacterEncodingFilter' configured for use
+2025-05-13 18:19:07.038 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: cb884d81-e996-43af-9edf-cd68e14e0d7c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:19:07.584 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f3a8551, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40e0a4bb, org.springframework.security.web.context.SecurityContextHolderFilter@691d93f9, org.springframework.security.web.header.HeaderWriterFilter@484e3147, org.springframework.security.web.authentication.logout.LogoutFilter@2c3c6528, com.example.mzt_server.security.JwtAuthenticationFilter@26d87260, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44b6b773, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7dcb62ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1fe8218e, org.springframework.security.web.session.SessionManagementFilter@6466085f, org.springframework.security.web.access.ExceptionTranslationFilter@5dfe0f16, org.springframework.security.web.access.intercept.AuthorizationFilter@7bb8adca]
+2025-05-13 18:19:07.622 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:19:07.626 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:07.631 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:19:07.634 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 1.098 seconds (process running for 75.27)
+2025-05-13 18:19:07.636 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 18:19:47.995 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-13 18:19:48.000 [Thread-8] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:48.000 [Thread-8] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-13 18:19:48.002 [Thread-8] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:48.002 [Thread-8] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:48.075 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 34544 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:19:48.075 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:19:48.075 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:19:48.216 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:19:48.216 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:19:48.222 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:19:48.300 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:19:48.301 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:48.301 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:19:48.302 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:19:48.333 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:19:48.334 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 257 ms
+2025-05-13 18:19:48.343 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:19:48.344 [restartedMain] DEBUG c.e.m.f.CustomCharacterEncodingFilter - Filter 'customCharacterEncodingFilter' configured for use
+2025-05-13 18:19:48.507 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9d1d7cbb-4181-4026-99fe-1abf3abf011c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:19:49.025 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16c69a33, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64c0283d, org.springframework.security.web.context.SecurityContextHolderFilter@1ef7040c, org.springframework.security.web.header.HeaderWriterFilter@2cd39a5f, org.springframework.security.web.authentication.logout.LogoutFilter@7450d492, com.example.mzt_server.security.JwtAuthenticationFilter@7198e99b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10bd7b0a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@208c1a20, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f5407c0, org.springframework.security.web.session.SessionManagementFilter@277aa4b3, org.springframework.security.web.access.ExceptionTranslationFilter@178338e0, org.springframework.security.web.access.intercept.AuthorizationFilter@4fd3c2fa]
+2025-05-13 18:19:49.057 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:19:49.060 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:19:49.065 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:19:49.067 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 1.018 seconds (process running for 116.704)
+2025-05-13 18:19:49.069 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 18:21:36.060 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-13 18:21:36.065 [Thread-13] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:21:36.065 [Thread-13] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-13 18:21:36.066 [Thread-13] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:21:36.067 [Thread-13] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:21:36.153 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 34544 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:21:36.153 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:21:36.153 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:21:36.284 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:21:36.284 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:21:36.289 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:21:36.354 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:21:36.354 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:21:36.355 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:21:36.355 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:21:36.386 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:21:36.387 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 232 ms
+2025-05-13 18:21:36.391 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:21:36.392 [restartedMain] DEBUG c.e.m.f.CustomCharacterEncodingFilter - Filter 'customCharacterEncodingFilter' configured for use
+2025-05-13 18:21:36.496 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 4cdaa875-9409-49e0-b181-4c72e8683297
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:21:36.959 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1b9ef963, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65f4000a, org.springframework.security.web.context.SecurityContextHolderFilter@8492ff3, org.springframework.security.web.header.HeaderWriterFilter@651af4b0, org.springframework.security.web.authentication.logout.LogoutFilter@44675e64, com.example.mzt_server.security.JwtAuthenticationFilter@3f98cfff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19364db7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2bbb8555, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35f666a6, org.springframework.security.web.session.SessionManagementFilter@3ed21aea, org.springframework.security.web.access.ExceptionTranslationFilter@31040d40, org.springframework.security.web.access.intercept.AuthorizationFilter@18f15920]
+2025-05-13 18:21:36.990 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:21:36.993 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:21:36.997 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:21:37.000 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 0.877 seconds (process running for 224.635)
+2025-05-13 18:21:37.000 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 18:22:53.242 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-05-13 18:22:53.247 [Thread-18] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:22:53.247 [Thread-18] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-13 18:22:53.250 [Thread-18] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:22:53.250 [Thread-18] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:22:53.327 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 34544 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:22:53.327 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:22:53.327 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:22:53.466 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:22:53.466 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:22:53.472 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:22:53.550 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:22:53.551 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:22:53.552 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:22:53.552 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:22:53.591 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:22:53.591 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 261 ms
+2025-05-13 18:22:53.598 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:22:53.599 [restartedMain] DEBUG c.e.m.f.CustomCharacterEncodingFilter - Filter 'customCharacterEncodingFilter' configured for use
+2025-05-13 18:22:53.720 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e5ccf646-0e5e-40ff-8c8f-c58467248c39
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:22:54.209 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@61155e8d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67abd13d, org.springframework.security.web.context.SecurityContextHolderFilter@79ee316, org.springframework.security.web.header.HeaderWriterFilter@d3e8725, org.springframework.security.web.authentication.logout.LogoutFilter@2d2573a9, com.example.mzt_server.security.JwtAuthenticationFilter@5a0c10, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f308060, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ce270c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5fd1b288, org.springframework.security.web.session.SessionManagementFilter@5e60b4df, org.springframework.security.web.access.ExceptionTranslationFilter@17f3530, org.springframework.security.web.access.intercept.AuthorizationFilter@21ec6e7b]
+2025-05-13 18:22:54.246 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:22:54.250 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:22:54.265 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:22:54.266 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 0.972 seconds (process running for 301.902)
+2025-05-13 18:22:54.266 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 18:24:06.182 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-13 18:24:06.189 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:06.189 [Thread-23] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-13 18:24:06.190 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:06.192 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:06.264 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 34544 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:24:06.264 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:24:06.264 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:24:06.391 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:24:06.391 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:24:06.396 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:24:06.466 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:24:06.469 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:06.470 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:24:06.470 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:24:06.505 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:24:06.505 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 240 ms
+2025-05-13 18:24:06.511 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:24:06.511 [restartedMain] DEBUG c.e.m.f.CustomCharacterEncodingFilter - Filter 'customCharacterEncodingFilter' configured for use
+2025-05-13 18:24:06.639 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9e0bb447-2e1a-44a4-964d-fefeb38f0300
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:24:07.084 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4934a619, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bb5c414, org.springframework.security.web.context.SecurityContextHolderFilter@c03b2eb, org.springframework.security.web.header.HeaderWriterFilter@18371115, org.springframework.security.web.authentication.logout.LogoutFilter@298560d3, com.example.mzt_server.security.JwtAuthenticationFilter@926a382, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35660525, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15f90525, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f1172d6, org.springframework.security.web.session.SessionManagementFilter@2b00da82, org.springframework.security.web.access.ExceptionTranslationFilter@7709caa4, org.springframework.security.web.access.intercept.AuthorizationFilter@71c2ff7a]
+2025-05-13 18:24:07.110 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:24:07.112 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:07.115 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:24:07.116 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 0.881 seconds (process running for 374.753)
+2025-05-13 18:24:07.117 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 18:24:19.782 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-05-13 18:24:19.788 [Thread-28] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:19.788 [Thread-28] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-13 18:24:19.789 [Thread-28] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:19.791 [Thread-28] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:19.874 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 34544 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:24:19.874 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:24:19.874 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:24:19.991 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:24:19.992 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:24:19.995 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:24:20.067 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:24:20.069 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:20.069 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:24:20.069 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:24:20.113 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:24:20.113 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 238 ms
+2025-05-13 18:24:20.121 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:24:20.121 [restartedMain] DEBUG c.e.m.f.CustomCharacterEncodingFilter - Filter 'customCharacterEncodingFilter' configured for use
+2025-05-13 18:24:20.240 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 06d2ad61-ae79-486b-9e70-4e21a10bf25d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:24:20.742 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@322d8586, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f161d1f, org.springframework.security.web.context.SecurityContextHolderFilter@24445ce0, org.springframework.security.web.header.HeaderWriterFilter@1cca5b24, org.springframework.security.web.authentication.logout.LogoutFilter@73b7d824, com.example.mzt_server.security.JwtAuthenticationFilter@658a12d3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f7d9973, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5120f2c3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6cfe08ac, org.springframework.security.web.session.SessionManagementFilter@742a178a, org.springframework.security.web.access.ExceptionTranslationFilter@7b181348, org.springframework.security.web.access.intercept.AuthorizationFilter@56122d17]
+2025-05-13 18:24:20.770 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:24:20.774 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:24:20.776 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:24:20.779 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 0.931 seconds (process running for 388.415)
+2025-05-13 18:24:20.780 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 18:24:51.185 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-13 18:24:51.186 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-13 18:24:51.186 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-05-13 18:24:54.165 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-05-13 18:24:54.177 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a5f74af
+2025-05-13 18:24:54.177 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-05-13 18:24:54.262 [http-nio-8080-exec-2] WARN  c.e.m.c.e.GlobalExceptionHandler - 业务异常代码: A0003
+2025-05-13 18:24:54.265 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.example.mzt_server.common.exception.BusinessException: 用户名或密码错误]
+2025-05-13 18:25:16.855 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 6 class path changes (0 additions, 2 deletions, 4 modifications)
+2025-05-13 18:25:16.858 [Thread-33] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:25:16.858 [Thread-33] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-13 18:25:16.858 [Thread-33] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-05-13 18:25:16.862 [Thread-33] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-nioEventLoop-17-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/sun.nio.ch.WEPoll.wait(Native Method)
+ java.base/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+ java.base/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+ java.base/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:147)
+ io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:68)
+ io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:879)
+ io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:526)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:25:16.862 [Thread-33] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-15-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:25:16.862 [Thread-33] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-15-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:25:16.864 [Thread-33] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-15-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:25:16.864 [Thread-33] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:25:16.866 [Thread-33] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-15-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3778)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3723)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1712)
+ java.base/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:244)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-13 18:25:16.866 [Thread-33] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:25:16.866 [Thread-33] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:25:16.978 [Thread-33] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-05-13 18:25:16.983 [Thread-33] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-05-13 18:25:17.047 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 34544 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:25:17.049 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:25:17.049 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:25:17.169 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:25:17.169 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:25:17.174 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:25:17.231 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:25:17.231 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:25:17.231 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:25:17.232 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:25:17.274 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:25:17.275 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 226 ms
+2025-05-13 18:25:17.280 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:25:17.281 [restartedMain] DEBUG c.e.m.f.CustomCharacterEncodingFilter - Filter 'customCharacterEncodingFilter' configured for use
+2025-05-13 18:25:17.379 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 0ce82061-4369-41d5-b54c-da8b634bbcb3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:25:17.887 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@503f2679, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@614345d, org.springframework.security.web.context.SecurityContextHolderFilter@444b5419, org.springframework.security.web.header.HeaderWriterFilter@58a4d5dd, org.springframework.security.web.authentication.logout.LogoutFilter@6cd75546, com.example.mzt_server.security.JwtAuthenticationFilter@13513e0f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59120a4a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27e62688, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@510b4e61, org.springframework.security.web.session.SessionManagementFilter@226eeffc, org.springframework.security.web.access.ExceptionTranslationFilter@2b56d248, org.springframework.security.web.access.intercept.AuthorizationFilter@331af299]
+2025-05-13 18:25:17.912 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:25:17.915 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:25:17.918 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:25:17.919 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 0.9 seconds (process running for 445.555)
+2025-05-13 18:25:17.920 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-05-13 18:25:26.908 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-05-13 18:25:26.936 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Starting MztServerApplication using Java 21.0.7 with PID 8188 (E:\Projects\mzt-server\target\classes started by Miro in e:\Projects\mzt-server)
+2025-05-13 18:25:26.937 [restartedMain] DEBUG c.e.mzt_server.MztServerApplication - Running with Spring Boot v3.1.4, Spring v6.0.12
+2025-05-13 18:25:26.937 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-13 18:25:26.984 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-13 18:25:26.984 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-13 18:25:27.924 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13 18:25:27.925 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13 18:25:27.951 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-05-13 18:25:28.845 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-05-13 18:25:28.860 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:25:28.862 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-13 18:25:28.862 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2025-05-13 18:25:28.945 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-13 18:25:28.945 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1961 ms
+2025-05-13 18:25:29.023 [restartedMain] DEBUG c.e.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-05-13 18:25:29.024 [restartedMain] DEBUG c.e.m.f.CustomCharacterEncodingFilter - Filter 'customCharacterEncodingFilter' configured for use
+2025-05-13 18:25:29.978 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 5acadcbf-520f-440e-9ff2-b51978f4a61d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-13 18:25:30.990 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@54da695, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e5bc94d, org.springframework.security.web.context.SecurityContextHolderFilter@2288704a, org.springframework.security.web.header.HeaderWriterFilter@25d3ab4f, org.springframework.security.web.authentication.logout.LogoutFilter@429ee99c, com.example.mzt_server.security.JwtAuthenticationFilter@7de6e4ac, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33f77e5d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5ae5553d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58f5d2bc, org.springframework.security.web.session.SessionManagementFilter@16e75890, org.springframework.security.web.access.ExceptionTranslationFilter@7ada7e19, org.springframework.security.web.access.intercept.AuthorizationFilter@368fba53]
+2025-05-13 18:25:31.517 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-05-13 18:25:31.534 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-13 18:25:31.575 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-05-13 18:25:31.587 [restartedMain] INFO  c.e.mzt_server.MztServerApplication - Started MztServerApplication in 5.135 seconds (process running for 5.592)

@@ -1,112 +1,88 @@
 package com.example.mzt_server.common;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
- * 通用返回结果封装类
- * 
- * @param <T> 返回数据类型
+ * 通用响应结果
  */
 @Data
+@Schema(description = "通用响应结果")
 public class Result<T> {
-    
+
     /**
-     * 状态码
+     * 响应码
      */
-    private Integer code;
-    
+    @Schema(description = "响应码", example = "00000")
+    private String code;
+
     /**
-     * 返回消息
+     * 响应消息
      */
-    private String message;
-    
+    @Schema(description = "响应消息", example = "操作成功")
+    private String msg;
+
     /**
-     * 返回数据
+     * 响应数据
      */
+    @Schema(description = "响应数据")
     private T data;
-    
+
     /**
-     * 私有构造方法
+     * 私有构造函数
      */
-    private Result() {}
-    
-    /**
-     * 私有构造方法
-     * 
-     * @param code 状态码
-     * @param message 返回消息
-     * @param data 返回数据
-     */
-    private Result(Integer code, String message, T data) {
-        this.code = code;
-        this.message = message;
-        this.data = data;
+    private Result() {
     }
-    
+
     /**
-     * 成功返回结果
-     * 
+     * 成功结果
+     *
+     * @param data 数据
      * @param <T> 数据类型
-     * @return Result对象
-     */
-    public static <T> Result<T> success() {
-        return new Result<>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), null);
-    }
-    
-    /**
-     * 成功返回结果
-     * 
-     * @param <T> 数据类型
-     * @param data 返回数据
-     * @return Result对象
+     * @return 结果
      */
     public static <T> Result<T> success(T data) {
-        return new Result<>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), data);
+        Result<T> result = new Result<>();
+        result.setCode("00000");
+        result.setMsg("操作成功");
+        result.setData(data);
+        return result;
     }
-    
+
     /**
-     * 成功返回结果
-     * 
+     * 成功结果（无数据）
+     *
      * @param <T> 数据类型
-     * @param message 返回消息
-     * @param data 返回数据
-     * @return Result对象
+     * @return 结果
      */
-    public static <T> Result<T> success(String message, T data) {
-        return new Result<>(ResultCode.SUCCESS.getCode(), message, data);
+    public static <T> Result<T> success() {
+        return success(null);
     }
-    
+
     /**
-     * 失败返回结果
-     * 
+     * 错误结果
+     *
+     * @param code 错误码
+     * @param msg 错误消息
      * @param <T> 数据类型
-     * @param resultCode 状态码枚举
-     * @return Result对象
+     * @return 结果
      */
-    public static <T> Result<T> error(ResultCode resultCode) {
-        return new Result<>(resultCode.getCode(), resultCode.getMessage(), null);
+    public static <T> Result<T> error(String code, String msg) {
+        Result<T> result = new Result<>();
+        result.setCode(code);
+        result.setMsg(msg);
+        result.setData(null);
+        return result;
     }
-    
+
     /**
-     * 失败返回结果
-     * 
+     * 错误结果（默认错误码）
+     *
+     * @param msg 错误消息
      * @param <T> 数据类型
-     * @param code 状态码
-     * @param message 返回消息
-     * @return Result对象
+     * @return 结果
      */
-    public static <T> Result<T> error(Integer code, String message) {
-        return new Result<>(code, message, null);
-    }
-    
-    /**
-     * 失败返回结果
-     * 
-     * @param <T> 数据类型
-     * @param message 返回消息
-     * @return Result对象
-     */
-    public static <T> Result<T> error(String message) {
-        return new Result<>(ResultCode.FAILED.getCode(), message, null);
+    public static <T> Result<T> error(String msg) {
+        return error("B0001", msg);
     }
 } 
