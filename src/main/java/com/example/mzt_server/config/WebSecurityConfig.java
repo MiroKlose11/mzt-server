@@ -29,22 +29,14 @@ public class WebSecurityConfig {
             // 基于Token，不需要Session
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             // 请求授权
-            .authorizeHttpRequests(auth -> auth
-                // 允许访问的接口
-                .requestMatchers(
-                    "/api/auth/login",
-                    "/api/auth/captcha",
-                    "/api/auth/refresh-token",
-                    "/doc.html",
-                    "/webjars/**",
-                    "/swagger-resources/**",
-                    "/v3/api-docs/**",
-                    "/druid/**",
-                    "/index/**"
-                ).permitAll()
-                // 其他所有请求需要认证
-                .anyRequest().authenticated()
-            )
+            .authorizeHttpRequests((authz) -> authz
+                    // 白名单接口放行
+                    .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/doc.html",
+                            "/auth/login", "/auth/captcha").permitAll()
+                    // 需要认证的接口
+                    .requestMatchers("/auth/info", "/user/info", "/menus/routes").authenticated()
+                    // 其余接口默认放行
+                    .anyRequest().permitAll())
             // 添加JWT过滤器
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         

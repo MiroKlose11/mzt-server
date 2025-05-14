@@ -17,16 +17,16 @@ public class Result<T> {
     private String code;
 
     /**
-     * 响应消息
-     */
-    @Schema(description = "响应消息", example = "操作成功")
-    private String msg;
-
-    /**
      * 响应数据
      */
     @Schema(description = "响应数据")
     private T data;
+
+ /**
+     * 响应消息
+     */
+    @Schema(description = "响应消息", example = "一切OK!")
+    private String msg;
 
     /**
      * 私有构造函数
@@ -44,8 +44,8 @@ public class Result<T> {
     public static <T> Result<T> success(T data) {
         Result<T> result = new Result<>();
         result.setCode("00000");
-        result.setMsg("操作成功");
         result.setData(data);
+        result.setMsg("一切OK!");
         return result;
     }
 
@@ -70,8 +70,8 @@ public class Result<T> {
     public static <T> Result<T> error(String code, String msg) {
         Result<T> result = new Result<>();
         result.setCode(code);
-        result.setMsg(msg);
         result.setData(null);
+        result.setMsg(msg);
         return result;
     }
 

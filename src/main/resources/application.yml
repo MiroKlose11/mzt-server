@@ -11,7 +11,7 @@ spring:
     # 数据库驱动类名
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 数据库连接URL
-    url: jdbc:mysql://localhost:3306/mzt?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+    url: jdbc:mysql://localhost:3306/mzt?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
     # 数据库用户名
     username: root
     # 数据库密码
@@ -100,7 +100,7 @@ springdoc:
     - group: '系统管理接口'
       paths-to-match: '/admin/**'
     - group: '认证接口'
-      paths-to-match: '/api/auth/**'
+      paths-to-match: '/auth/**'
   default-flat-param-object: true
 
 knife4j:
