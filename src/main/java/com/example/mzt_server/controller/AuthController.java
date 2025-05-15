@@ -51,4 +51,14 @@ public class AuthController {
         CaptchaInfo captcha = authService.getCaptcha();
         return Result.success(captcha);
     }
+
+    /**
+     * 注销登录
+     */
+    @Operation(summary = "注销登录", description = "用户注销登录接口")
+    @DeleteMapping("/logout")
+    public Result<Object> logout(@RequestHeader("Authorization") String token) {
+        authService.logout(token);
+        return Result.success(null);
+    }
 } 

@@ -40,7 +40,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         // 获取Token
         String token = getTokenFromRequest(request);
         
-        // 验证Token
+        // 验证Token (此方法已经包含了对黑名单的检查)
         if (StringUtils.hasText(token) && jwtUtils.validateToken(token)) {
             try {
                 // 解析Token
@@ -63,6 +63,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             } catch (Exception e) {
                 logger.error("JWT认证异常", e);
+                // 清除认证信息
+                SecurityContextHolder.clearContext();
             }
         }
         

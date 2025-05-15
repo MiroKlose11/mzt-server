@@ -8,9 +8,13 @@ import com.example.mzt_server.common.vo.LoginResult;
 import com.example.mzt_server.entity.SysUser;
 import com.example.mzt_server.util.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import io.jsonwebtoken.Claims;
 
 /**
  * 认证服务
@@ -26,6 +30,9 @@ public class AuthService {
 
     @Autowired
     private JwtUtils jwtUtils;
+
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
 
     /**
      * 登录
@@ -124,5 +131,38 @@ public class AuthService {
         result.setExpiresIn(jwtUtils.getAccessTokenExpiration());
         
         return result;
+    }
+
+    /**
+     * 注销登录
+     *
+     * @param token 访问令牌
+     * @return 是否成功
+     */
+    public boolean logout(String token) {
+        if (token != null && token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+        
+        if (token == null || !jwtUtils.validateToken(token)) {
+            return false;
+        }
+        
+        try {
+            // 解析令牌，获取令牌ID
+            Claims claims = jwtUtils.parseToken(token);
+            String tokenId = claims.getId();
+            
+            // 将令牌加入黑名单，设置过期时间
+            long expiration = claims.getExpiration().getTime() - System.currentTimeMillis();
+            if (expiration > 0) {
+                // 将令牌加入Redis黑名单，过期时间与令牌剩余时间一致
+                redisTemplate.opsForValue().set("jwt:blacklist:" + tokenId, "1", expiration, TimeUnit.MILLISECONDS);
+            }
+            
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 } 

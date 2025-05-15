@@ -4,7 +4,9 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 import java.util.List;
@@ -33,6 +35,9 @@ public class JwtUtils {
      */
     @Value("${jwt.refresh-token-expiration:604800}")
     private Long refreshTokenExpiration;
+    
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
     
     /**
      * 生成访问令牌
@@ -103,7 +108,16 @@ public class JwtUtils {
      */
     public boolean validateToken(String token) {
         try {
-            Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
+            // 解析令牌
+            Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+            
+            // 检查是否在黑名单中
+            String tokenId = claims.getId();
+            Boolean isBlacklisted = redisTemplate.hasKey("jwt:blacklist:" + tokenId);
+            if (Boolean.TRUE.equals(isBlacklisted)) {
+                return false;
+            }
+            
             return true;
         } catch (Exception e) {
             return false;

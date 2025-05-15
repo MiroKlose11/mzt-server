@@ -101,6 +101,10 @@ springdoc:
       paths-to-match: '/admin/**'
     - group: '认证接口'
       paths-to-match: '/auth/**'
+    - group: '菜单接口'
+      paths-to-match: '/menus/**' 
+    - group: '日志接口'
+      paths-to-match: '/logs/**'  
   default-flat-param-object: true
 
 knife4j:
