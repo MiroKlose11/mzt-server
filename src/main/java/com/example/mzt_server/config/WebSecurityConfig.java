@@ -32,9 +32,9 @@ public class WebSecurityConfig {
             .authorizeHttpRequests((authz) -> authz
                     // 白名单接口放行
                     .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/doc.html",
-                            "/auth/login", "/auth/captcha").permitAll()
+                            "/auth/login", "/auth/captcha", "/menus/routes").permitAll()
                     // 需要认证的接口
-                    .requestMatchers("/auth/info", "/user/info", "/menus/routes").authenticated()
+                    .requestMatchers("/auth/info", "/user/info").authenticated()
                     // 其余接口默认放行
                     .anyRequest().permitAll())
             // 添加JWT过滤器
