@@ -5,7 +5,7 @@ import com.example.mzt_server.common.vo.VisitStatsVO;
 import com.example.mzt_server.common.vo.VisitTrendVO;
 import com.example.mzt_server.common.vo.PageResult;
 import com.example.mzt_server.common.vo.LogPageVO;
-import com.example.mzt_server.service.LogService;
+import com.example.mzt_server.service.ILogService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LogController {
 
     @Autowired
-    private LogService logService;
+    private ILogService logService;
 
     @Operation(summary = "获取访问统计", description = "获取系统访问量统计数据")
     @GetMapping("/visit-stats")

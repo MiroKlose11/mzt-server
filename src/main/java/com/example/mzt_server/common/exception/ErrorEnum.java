@@ -16,7 +16,7 @@ public enum ErrorEnum {
     /**
      * 参数错误
      */
-    PARAM_ERROR("A0001", "参数错误"),
+    PARAM_ERROR("A0400", "请求参数错误"),
 
     /**
      * 用户不存在
@@ -56,7 +56,17 @@ public enum ErrorEnum {
     /**
      * 未授权
      */
-    UNAUTHORIZED("A0009", "未授权");
+    UNAUTHORIZED("A0401", "未授权"),
+
+    /**
+     * 禁止访问
+     */
+    FORBIDDEN("A0403", "禁止访问"),
+
+    /**
+     * 资源不存在
+     */
+    RESOURCE_NOT_FOUND("A0404", "资源不存在");
 
     /**
      * 错误码

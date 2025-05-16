@@ -1,29 +1,32 @@
-package com.example.mzt_server.service;
+package com.example.mzt_server.service.impl;
 
+import com.example.mzt_server.common.vo.LogPageVO;
+import com.example.mzt_server.common.vo.PageResult;
 import com.example.mzt_server.common.vo.VisitStatsVO;
+import com.example.mzt_server.common.vo.VisitTrendVO;
+import com.example.mzt_server.entity.SysLog;
 import com.example.mzt_server.entity.VisitStats;
+import com.example.mzt_server.mapper.SysLogMapper;
 import com.example.mzt_server.mapper.VisitStatsMapper;
+import com.example.mzt_server.service.ILogService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.text.SimpleDateFormat;
-import com.example.mzt_server.common.vo.VisitTrendVO;
-import com.example.mzt_server.common.vo.PageResult;
-import com.example.mzt_server.common.vo.LogPageVO;
-import com.example.mzt_server.entity.SysLog;
-import com.example.mzt_server.mapper.SysLogMapper;
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
-import org.springframework.beans.BeanUtils;
 
+/**
+ * 日志服务实现类
+ */
 @Service
-public class LogService {
+public class LogServiceImpl implements ILogService {
 
     @Autowired
     private VisitStatsMapper visitStatsMapper;
@@ -36,6 +39,7 @@ public class LogService {
      * 
      * @return 访问统计VO
      */
+    @Override
     public VisitStatsVO getVisitStats() {
         // 获取今日数据
         VisitStats todayStats = visitStatsMapper.getTodayStats();
@@ -103,6 +107,7 @@ public class LogService {
      * @param endDate 结束日期
      * @return 访问趋势VO
      */
+    @Override
     public VisitTrendVO getVisitTrend(String startDate, String endDate) {
         try {
             // 解析日期
@@ -188,6 +193,7 @@ public class LogService {
      * @param pageSize 每页大小
      * @return 分页结果
      */
+    @Override
     public PageResult<LogPageVO> getLogPage(String keywords, String createTime, Integer pageNum, Integer pageSize) {
         // 解析时间范围
         LocalDateTime startTime = null;

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mzt_server.common.Result;
 import com.example.mzt_server.entity.Banner;
-import com.example.mzt_server.service.BannerService;
+import com.example.mzt_server.service.IBannerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,7 +21,7 @@ import java.util.List;
 public class BannerController {
 
     @Autowired
-    private BannerService bannerService;
+    private IBannerService bannerService;
     
     /**
      * 获取轮播图列表（用户端）
@@ -53,7 +53,7 @@ public class BannerController {
      * 添加轮播图（管理端）
      */
     @Operation(summary = "添加轮播图", description = "创建新的轮播图")
-    @PostMapping("/admin/banner")
+    @PostMapping("/homepage/banner")
     public Result<Banner> add(@RequestBody Banner banner) {
         bannerService.save(banner);
         return Result.success(banner);
@@ -63,7 +63,7 @@ public class BannerController {
      * 删除轮播图（管理端）
      */
     @Operation(summary = "删除轮播图", description = "根据ID删除轮播图")
-    @DeleteMapping("/admin/banner/{id}")
+    @DeleteMapping("/homepage/banner/{id}")
     public Result<Boolean> delete(@Parameter(description = "轮播图ID") @PathVariable Long id) {
         boolean success = bannerService.removeById(id);
         return Result.success(success);
@@ -73,7 +73,7 @@ public class BannerController {
      * 更新轮播图（管理端）
      */
     @Operation(summary = "更新轮播图", description = "更新轮播图信息")
-    @PutMapping("/admin/banner")
+    @PutMapping("/homepage/banner")
     public Result<Boolean> update(@RequestBody Banner banner) {
         boolean success = bannerService.updateById(banner);
         return Result.success(success);
@@ -83,7 +83,7 @@ public class BannerController {
      * 获取轮播图详情（管理端）
      */
     @Operation(summary = "获取轮播图详情", description = "根据ID获取轮播图详情")
-    @GetMapping("/admin/banner/{id}")
+    @GetMapping("/homepage/banner/{id}")
     public Result<Banner> getById(@Parameter(description = "轮播图ID") @PathVariable Long id) {
         Banner banner = bannerService.getById(id);
         return Result.success(banner);
@@ -93,7 +93,7 @@ public class BannerController {
      * 分页获取轮播图列表（管理端）
      */
     @Operation(summary = "分页获取轮播图列表", description = "管理端分页获取轮播图列表")
-    @GetMapping("/admin/banner/page")
+    @GetMapping("/homepage/banner/page")
     public Result<Page<Banner>> page(
             @Parameter(description = "页码") @RequestParam(defaultValue = "1") Integer current,
             @Parameter(description = "每页条数") @RequestParam(defaultValue = "10") Integer size,
@@ -118,7 +118,7 @@ public class BannerController {
      * 获取所有轮播图列表（管理端）
      */
     @Operation(summary = "获取所有轮播图列表", description = "管理端获取所有轮播图列表，可按位置筛选")
-    @GetMapping("/admin/banner/list")
+    @GetMapping("/homepage/banner/list")
     public Result<List<Banner>> list(
             @Parameter(description = "轮播图位置") @RequestParam(required = false) Integer position) {
         

@@ -97,8 +97,8 @@ springdoc:
   group-configs:
     - group: '首页接口'
       paths-to-match: '/index/**'
-    - group: '系统管理接口'
-      paths-to-match: '/admin/**'
+    - group: '首页管理接口'
+      paths-to-match: '/homepage/**'
     - group: '认证接口'
       paths-to-match: '/auth/**'
     - group: '菜单接口'

@@ -1,4 +1,4 @@
-package com.example.mzt_server.service;
+package com.example.mzt_server.service.impl;
 
 import com.example.mzt_server.common.exception.BusinessException;
 import com.example.mzt_server.common.exception.ErrorEnum;
@@ -6,7 +6,11 @@ import com.example.mzt_server.common.vo.CaptchaInfo;
 import com.example.mzt_server.common.vo.LoginRequest;
 import com.example.mzt_server.common.vo.LoginResult;
 import com.example.mzt_server.entity.SysUser;
+import com.example.mzt_server.service.ICaptchaService;
+import com.example.mzt_server.service.IAuthService;
+import com.example.mzt_server.service.ISysUserService;
 import com.example.mzt_server.util.JwtUtils;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -14,19 +18,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import io.jsonwebtoken.Claims;
-
 /**
- * 认证服务
+ * 认证服务实现类
  */
 @Service
-public class AuthService {
+public class AuthServiceImpl implements IAuthService {
 
     @Autowired
-    private SysUserService userService;
+    private ISysUserService userService;
 
     @Autowired
-    private CaptchaService captchaService;
+    private ICaptchaService captchaService;
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -40,6 +42,7 @@ public class AuthService {
      * @param request 登录请求
      * @return 登录结果
      */
+    @Override
     public LoginResult login(LoginRequest request) {
         // 1. 验证验证码
         if (!captchaService.validateCaptcha(request.getCaptchaKey(), request.getCaptchaCode())) {
@@ -72,6 +75,7 @@ public class AuthService {
      * @param refreshToken 刷新令牌
      * @return 登录结果
      */
+    @Override
     public LoginResult refreshToken(String refreshToken) {
         if (!jwtUtils.validateToken(refreshToken)) {
             throw new BusinessException(ErrorEnum.INVALID_TOKEN);
@@ -105,32 +109,9 @@ public class AuthService {
      *
      * @return 验证码信息
      */
+    @Override
     public CaptchaInfo getCaptcha() {
         return captchaService.generateCaptcha();
-    }
-
-    /**
-     * 生成令牌
-     *
-     * @param user 用户信息
-     * @return 登录结果
-     */
-    private LoginResult generateTokens(SysUser user) {
-        // 获取用户角色
-        List<String> roles = userService.getUserRoles(user.getId());
-        
-        // 生成令牌
-        String accessToken = jwtUtils.generateAccessToken(user.getUsername(), roles, user.getId());
-        String refreshToken = jwtUtils.generateRefreshToken(user.getUsername(), roles, user.getId());
-        
-        // 构建返回结果
-        LoginResult result = new LoginResult();
-        result.setAccessToken(accessToken);
-        result.setRefreshToken(refreshToken);
-        result.setTokenType("Bearer");
-        result.setExpiresIn(jwtUtils.getAccessTokenExpiration());
-        
-        return result;
     }
 
     /**
@@ -139,6 +120,7 @@ public class AuthService {
      * @param token 访问令牌
      * @return 是否成功
      */
+    @Override
     public boolean logout(String token) {
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7);
@@ -164,5 +146,29 @@ public class AuthService {
         } catch (Exception e) {
             return false;
         }
+    }
+    
+    /**
+     * 生成令牌
+     *
+     * @param user 用户信息
+     * @return 登录结果
+     */
+    private LoginResult generateTokens(SysUser user) {
+        // 获取用户角色
+        List<String> roles = userService.getUserRoles(user.getId());
+        
+        // 生成令牌
+        String accessToken = jwtUtils.generateAccessToken(user.getUsername(), roles, user.getId());
+        String refreshToken = jwtUtils.generateRefreshToken(user.getUsername(), roles, user.getId());
+        
+        // 构建返回结果
+        LoginResult result = new LoginResult();
+        result.setAccessToken(accessToken);
+        result.setRefreshToken(refreshToken);
+        result.setTokenType("Bearer");
+        result.setExpiresIn(jwtUtils.getAccessTokenExpiration());
+        
+        return result;
     }
 } 

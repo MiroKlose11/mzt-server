@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.mzt_server.entity.Banner;
 import com.example.mzt_server.mapper.BannerMapper;
-import com.example.mzt_server.service.BannerService;
+import com.example.mzt_server.service.IBannerService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * Banner轮播图服务实现类
  */
 @Service
-public class BannerServiceImpl extends ServiceImpl<BannerMapper, Banner> implements BannerService {
+public class BannerServiceImpl extends ServiceImpl<BannerMapper, Banner> implements IBannerService {
     
     /**
      * 根据位置获取轮播图列表

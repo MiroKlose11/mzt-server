@@ -3,8 +3,8 @@ package com.example.mzt_server.controller;
 import com.example.mzt_server.common.Result;
 import com.example.mzt_server.entity.Banner;
 import com.example.mzt_server.entity.CategoryItem;
-import com.example.mzt_server.service.BannerService;
-import com.example.mzt_server.service.CategoryItemService;
+import com.example.mzt_server.service.IBannerService;
+import com.example.mzt_server.service.ICategoryItemService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -27,10 +27,10 @@ import java.util.Map;
 public class IndexController {
     
     @Autowired
-    private CategoryItemService categoryItemService;
+    private ICategoryItemService categoryItemService;
     
     @Autowired
-    private BannerService bannerService;
+    private IBannerService bannerService;
     
     /**
      * 获取首页顶部Banner

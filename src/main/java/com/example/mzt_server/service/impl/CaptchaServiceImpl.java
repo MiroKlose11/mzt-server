@@ -1,6 +1,7 @@
-package com.example.mzt_server.service;
+package com.example.mzt_server.service.impl;
 
 import com.example.mzt_server.common.vo.CaptchaInfo;
+import com.example.mzt_server.service.ICaptchaService;
 import com.google.code.kaptcha.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -14,10 +15,10 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 验证码服务
+ * 验证码服务实现类
  */
 @Service
-public class CaptchaService {
+public class CaptchaServiceImpl implements ICaptchaService {
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
@@ -40,6 +41,7 @@ public class CaptchaService {
      *
      * @return 验证码信息
      */
+    @Override
     public CaptchaInfo generateCaptcha() {
         // 生成验证码文本
         String text = captchaProducer.createText();
@@ -71,6 +73,7 @@ public class CaptchaService {
      * @param captchaCode 验证码
      * @return 是否有效
      */
+    @Override
     public boolean validateCaptcha(String captchaKey, String captchaCode) {
         String redisKey = CAPTCHA_PREFIX + captchaKey;
         String codeInRedis = redisTemplate.opsForValue().get(redisKey);

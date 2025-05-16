@@ -1,9 +1,10 @@
-package com.example.mzt_server.service;
+package com.example.mzt_server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.mzt_server.entity.SysUser;
 import com.example.mzt_server.mapper.SysUserMapper;
+import com.example.mzt_server.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 系统用户服务
+ * 系统用户服务实现类
  */
 @Service
-public class SysUserService extends ServiceImpl<SysUserMapper, SysUser> {
+public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -27,6 +28,7 @@ public class SysUserService extends ServiceImpl<SysUserMapper, SysUser> {
      * @param username 用户名
      * @return 用户信息
      */
+    @Override
     public SysUser getByUsername(String username) {
         LambdaQueryWrapper<SysUser> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(SysUser::getUsername, username);
@@ -40,6 +42,7 @@ public class SysUserService extends ServiceImpl<SysUserMapper, SysUser> {
      * @param encodedPassword 编码后的密码
      * @return 是否有效
      */
+    @Override
     public boolean verifyPassword(String rawPassword, String encodedPassword) {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
@@ -50,6 +53,7 @@ public class SysUserService extends ServiceImpl<SysUserMapper, SysUser> {
      * @param userId 用户ID
      * @return 角色列表
      */
+    @Override
     public List<String> getUserRoles(Long userId) {
         return baseMapper.selectRolesByUserId(userId);
     }
@@ -60,6 +64,7 @@ public class SysUserService extends ServiceImpl<SysUserMapper, SysUser> {
      * @param userId 用户ID
      * @return 权限列表
      */
+    @Override
     public List<String> getUserPermissions(Long userId) {
         return baseMapper.selectPermissionsByUserId(userId);
     }
@@ -70,6 +75,7 @@ public class SysUserService extends ServiceImpl<SysUserMapper, SysUser> {
      * @param userId 用户ID
      * @return 用户信息
      */
+    @Override
     public Map<String, Object> getUserInfo(Long userId) {
         // 查询用户基本信息
         SysUser user = getById(userId);

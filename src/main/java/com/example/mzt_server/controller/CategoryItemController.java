@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mzt_server.common.Result;
 import com.example.mzt_server.entity.CategoryItem;
-import com.example.mzt_server.service.CategoryItemService;
+import com.example.mzt_server.service.ICategoryItemService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,7 +22,7 @@ import java.util.List;
 public class CategoryItemController {
 
     @Autowired
-    private CategoryItemService categoryItemService;
+    private ICategoryItemService categoryItemService;
 
     /**
      * 获取分类条目列表（用户端）
@@ -52,7 +52,7 @@ public class CategoryItemController {
      * 添加分类条目（管理端）
      */
     @Operation(summary = "添加分类条目", description = "创建新的分类条目")
-    @PostMapping("/admin/category-item")
+    @PostMapping("/homepage/category-item")
     public Result<CategoryItem> add(@RequestBody CategoryItem categoryItem) {
         categoryItemService.save(categoryItem);
         return Result.success(categoryItem);
@@ -62,7 +62,7 @@ public class CategoryItemController {
      * 删除分类条目（管理端）
      */
     @Operation(summary = "删除分类条目", description = "根据ID删除分类条目")
-    @DeleteMapping("/admin/category-item/{id}")
+    @DeleteMapping("/homepage/category-item/{id}")
     public Result<Boolean> delete(@Parameter(description = "分类条目ID") @PathVariable Long id) {
         boolean success = categoryItemService.removeById(id);
         return Result.success(success);
@@ -72,7 +72,7 @@ public class CategoryItemController {
      * 更新分类条目（管理端）
      */
     @Operation(summary = "更新分类条目", description = "更新分类条目信息")
-    @PutMapping("/admin/category-item")
+    @PutMapping("/homepage/category-item")
     public Result<Boolean> update(@RequestBody CategoryItem categoryItem) {
         boolean success = categoryItemService.updateById(categoryItem);
         return Result.success(success);
@@ -82,7 +82,7 @@ public class CategoryItemController {
      * 获取分类条目详情（管理端）
      */
     @Operation(summary = "获取分类条目详情", description = "根据ID获取分类条目详情")
-    @GetMapping("/admin/category-item/{id}")
+    @GetMapping("/homepage/category-item/{id}")
     public Result<CategoryItem> getById(@Parameter(description = "分类条目ID") @PathVariable Long id) {
         CategoryItem categoryItem = categoryItemService.getById(id);
         return Result.success(categoryItem);
@@ -92,7 +92,7 @@ public class CategoryItemController {
      * 分页获取分类条目列表（管理端）
      */
     @Operation(summary = "分页获取分类条目列表", description = "管理端分页获取分类条目列表")
-    @GetMapping("/admin/category-item/page")
+    @GetMapping("/homepage/category-item/page")
     public Result<Page<CategoryItem>> page(
             @Parameter(description = "页码") @RequestParam(defaultValue = "1") Integer current,
             @Parameter(description = "每页条数") @RequestParam(defaultValue = "10") Integer size,
@@ -117,7 +117,7 @@ public class CategoryItemController {
      * 获取所有分类条目列表（管理端）
      */
     @Operation(summary = "获取所有分类条目列表", description = "管理端获取所有分类条目列表，可按类型筛选")
-    @GetMapping("/admin/category-item/list")
+    @GetMapping("/homepage/category-item/list")
     public Result<List<CategoryItem>> list(
             @Parameter(description = "分类类型") @RequestParam(required = false) String type) {
         
@@ -139,7 +139,7 @@ public class CategoryItemController {
      * 获取所有分类类型列表（管理端）
      */
     @Operation(summary = "获取所有分类类型", description = "获取系统中所有的分类类型")
-    @GetMapping("/admin/category-item/types")
+    @GetMapping("/homepage/category-item/types")
     public Result<List<String>> getAllTypes() {
         // 预定义的分类类型
         List<String> types = Arrays.asList("service", "platform", "course", "job");

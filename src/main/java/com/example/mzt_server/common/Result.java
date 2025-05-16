@@ -85,4 +85,14 @@ public class Result<T> {
     public static <T> Result<T> error(String msg) {
         return error("B0001", msg);
     }
+
+    /**
+     * 操作失败结果
+     *
+     * @param <T> 数据类型
+     * @return 结果
+     */
+    public static <T> Result<T> failed() {
+        return error("A0500", "操作失败");
+    }
 } 
