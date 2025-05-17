@@ -2,13 +2,18 @@ package com.example.mzt_server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.mzt_server.common.exception.BusinessException;
+import com.example.mzt_server.common.exception.ErrorEnum;
+import com.example.mzt_server.common.vo.UserProfileForm;
 import com.example.mzt_server.entity.SysUser;
 import com.example.mzt_server.mapper.SysUserMapper;
 import com.example.mzt_server.service.ISysUserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +26,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     /**
      * 根据用户名查询用户
@@ -95,7 +102,37 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         userInfo.put("avatar", user.getAvatar());
         userInfo.put("roles", roles);
         userInfo.put("permissions", permissions);
+        
+        if (user.getCreateTime() != null) {
+            userInfo.put("createTime", user.getCreateTime().format(DATE_FORMATTER));
+        }
 
         return userInfo;
+    }
+    
+    /**
+     * 获取用户个人信息
+     *
+     * @param userId 用户ID
+     * @return 用户个人信息
+     */
+    @Override
+    public UserProfileForm getUserProfile(Long userId) {
+        // 查询用户基本信息
+        SysUser user = getById(userId);
+        if (user == null) {
+            throw new BusinessException(ErrorEnum.USER_NOT_FOUND);
+        }
+        
+        // 转换为用户个人信息表单
+        UserProfileForm profileForm = new UserProfileForm();
+        BeanUtils.copyProperties(user, profileForm);
+        
+        // 手动处理日期格式转换
+        if (user.getCreateTime() != null) {
+            profileForm.setCreateTime(user.getCreateTime().format(DATE_FORMATTER));
+        }
+        
+        return profileForm;
     }
 } 

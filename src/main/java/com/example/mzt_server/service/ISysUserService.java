@@ -1,6 +1,7 @@
 package com.example.mzt_server.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.mzt_server.common.vo.UserProfileForm;
 import com.example.mzt_server.entity.SysUser;
 
 import java.util.List;
@@ -51,4 +52,12 @@ public interface ISysUserService extends IService<SysUser> {
      * @return 用户信息
      */
     Map<String, Object> getUserInfo(Long userId);
+    
+    /**
+     * 获取用户个人信息
+     *
+     * @param userId 用户ID
+     * @return 用户个人信息
+     */
+    UserProfileForm getUserProfile(Long userId);
 } 

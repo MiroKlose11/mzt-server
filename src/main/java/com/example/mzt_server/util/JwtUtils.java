@@ -72,7 +72,7 @@ public class JwtUtils {
      * @param expiration 过期时间(秒)
      * @return 令牌
      */
-    private String generateToken(String username, List<String> roles, Long userId, long expiration) {
+    public String generateToken(String username, List<String> roles, Long userId, long expiration) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + expiration * 1000);
         
