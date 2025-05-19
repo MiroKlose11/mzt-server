@@ -107,8 +107,8 @@ public class BannerController {
             queryWrapper.eq(Banner::getPosition, position);
         }
         
-        // 按排序字段排序
-        queryWrapper.orderByAsc(Banner::getSort);
+        // 按ID排序
+        queryWrapper.orderByDesc(Banner::getId);
         
         bannerService.page(page, queryWrapper);
         return Result.success(page);

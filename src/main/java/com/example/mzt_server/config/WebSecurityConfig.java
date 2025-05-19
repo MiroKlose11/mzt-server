@@ -34,7 +34,7 @@ public class WebSecurityConfig {
                     .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/doc.html",
                             "/auth/login", "/auth/captcha", "/menus/routes", "/test/**").permitAll()
                     // 需要认证的接口
-                    .requestMatchers("/auth/info", "/user/**", "/users/**").authenticated()
+                    .requestMatchers("/auth/info", "/user/**", "/users/**","/homepage/**").authenticated()
                     // 其余接口默认放行
                     .anyRequest().permitAll())
             // 添加JWT过滤器

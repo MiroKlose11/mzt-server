@@ -155,7 +155,7 @@ jwt:
   # 密钥
   secret: 8Kw5NIx5qqZS5ASytOuDcQ9cDXG1FSG8D3qr7D21HfI
   # 访问令牌过期时间(秒)
-  access-token-expiration: 1800
+  access-token-expiration: 86400
   # 刷新令牌过期时间(秒)
   refresh-token-expiration: 604800
 

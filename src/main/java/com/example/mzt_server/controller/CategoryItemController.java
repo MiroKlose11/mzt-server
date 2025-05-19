@@ -106,8 +106,8 @@ public class CategoryItemController {
             queryWrapper.eq(CategoryItem::getCategoryType, type);
         }
         
-        // 按排序字段排序
-        queryWrapper.orderByAsc(CategoryItem::getSort);
+        // 按ID排序
+        queryWrapper.orderByDesc(CategoryItem::getId);
         
         categoryItemService.page(page, queryWrapper);
         return Result.success(page);
