@@ -109,6 +109,8 @@ springdoc:
       paths-to-match: '/users/**'
     - group: '测试工具'
       paths-to-match: '/test/**'
+    - group: '文章接口'
+      paths-to-match: '/article/**'
   default-flat-param-object: true
 
 knife4j:
