@@ -1,4 +1,4 @@
-package com.example.mzt_server.controller;
+        package com.example.mzt_server.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -32,10 +32,19 @@ public class ArticleController {
      * 新增文章
      * @param article 文章实体
      * @return 新增后的文章
+     * 
+     * 注意：authorId和authorType可选，不传时系统会设置默认值
      */
-    @Operation(summary = "新增文章")
+    @Operation(summary = "新增文章", description = "创建新文章，authorId和authorType可选，不传时系统会设置默认值")
     @PostMapping("")
     public Result<Article> add(@RequestBody Article article) {
+        // 设置默认作者ID和作者类型，避免数据库非空约束报错
+        if (article.getAuthorId() == null) {
+            article.setAuthorId(1L); // 默认作者ID为1
+        }
+        if (article.getAuthorType() == null) {
+            article.setAuthorType(0); // 默认作者类型为管理员
+        }
         articleService.save(article);
         return Result.success(article);
     }
