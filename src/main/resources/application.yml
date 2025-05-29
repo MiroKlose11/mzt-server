@@ -113,6 +113,12 @@ springdoc:
       paths-to-match: '/article/**'
     - group: '文件管理接口'
       paths-to-match: '/file/**'
+    - group: '成员管理接口'
+      paths-to-match: '/member/**'
+    - group: '角色管理接口'
+      paths-to-match: '/role/**'
+    - group: '头衔管理接口'
+      paths-to-match: '/title/**'
   default-flat-param-object: true
 
 knife4j:
@@ -171,10 +177,3 @@ test:
     enabled: true
 
 # 腾讯云COS配置
-tencent:
-  cos:
-    secret-id:                # 替换为您的腾讯云SecretId
-    secret-key:                 # 替换为您的腾讯云SecretKey
-    region: ap-chengdu                  # 替换为您的存储桶所在地域，例如：ap-beijing, ap-shanghai, ap-guangzhou
-    bucket-name:   # 替换为您的存储桶名称，格式：BucketName-APPID
-    base-url:  # 替换为您的存储桶访问域名

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mzt_server.mapper.MemberMapper">
+
+    <!-- 分页查询成员列表 -->
+    <select id="selectMemberPage" resultType="com.example.mzt_server.entity.Member">
+        SELECT m.*
+        FROM member m
+        <where>
+            <if test="name != null and name != ''">
+                AND m.name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="gender != null">
+                AND m.gender = #{gender}
+            </if>
+            <if test="cityId != null">
+                AND m.city_id = #{cityId}
+            </if>
+            <if test="status != null">
+                AND m.status = #{status}
+            </if>
+            <if test="roleId != null">
+                AND EXISTS (
+                    SELECT 1 FROM member_role mr 
+                    WHERE mr.member_id = m.id AND mr.role_id = #{roleId}
+                )
+            </if>
+        </where>
+        ORDER BY m.updated_at DESC
+    </select>
+</mapper> 

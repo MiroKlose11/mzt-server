@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mzt_server.mapper.MemberRoleMapper">
+
+    <!-- 批量插入成员角色关联 -->
+    <insert id="batchInsert">
+        INSERT INTO member_role (member_id, role_id)
+        VALUES
+        <foreach collection="roleIds" item="roleId" separator=",">
+            (#{memberId}, #{roleId})
+        </foreach>
+    </insert>
+    
+    <!-- 根据成员ID删除关联 -->
+    <delete id="deleteByMemberId">
+        DELETE FROM member_role
+        WHERE member_id = #{memberId}
+    </delete>
+</mapper> 

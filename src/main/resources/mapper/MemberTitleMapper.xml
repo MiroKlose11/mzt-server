@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mzt_server.mapper.MemberTitleMapper">
+
+    <!-- 批量插入成员头衔关联 -->
+    <insert id="batchInsert">
+        INSERT INTO member_title (member_id, title_id, sort)
+        VALUES
+        <foreach collection="titleIds" item="titleId" index="index" separator=",">
+            (#{memberId}, #{titleId}, #{index})
+        </foreach>
+    </insert>
+    
+    <!-- 根据成员ID删除关联 -->
+    <delete id="deleteByMemberId">
+        DELETE FROM member_title
+        WHERE member_id = #{memberId}
+    </delete>
+</mapper> 

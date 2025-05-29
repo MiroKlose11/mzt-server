@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mzt_server.mapper.TitleMapper">
+
+    <!-- 根据成员ID查询头衔列表 -->
+    <select id="selectTitlesByMemberId" resultType="com.example.mzt_server.entity.Title">
+        SELECT t.*
+        FROM title t
+        JOIN member_title mt ON t.id = mt.title_id
+        WHERE mt.member_id = #{memberId}
+        ORDER BY mt.sort DESC, t.sort DESC, t.id ASC
+    </select>
+    
+    <!-- 根据类型查询头衔列表 -->
+    <select id="selectTitlesByType" resultType="com.example.mzt_server.entity.Title">
+        SELECT t.*
+        FROM title t
+        WHERE t.type = #{type}
+        ORDER BY t.sort DESC, t.id ASC
+    </select>
+</mapper> 
