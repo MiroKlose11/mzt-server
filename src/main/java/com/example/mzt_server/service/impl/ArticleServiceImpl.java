@@ -12,4 +12,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements IArticleService {
+    
+    @Override
+    public boolean incrementViews(Long id) {
+        // 获取文章
+        Article article = getById(id);
+        if (article == null) {
+            return false;
+        }
+        
+        // 增加浏览量
+        article.setViews(article.getViews() == null ? 1 : article.getViews() + 1);
+        
+        // 更新文章
+        return updateById(article);
+    }
 } 

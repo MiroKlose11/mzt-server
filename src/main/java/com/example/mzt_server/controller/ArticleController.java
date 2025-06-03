@@ -175,6 +175,10 @@ public class ArticleController {
         if (article == null || article.getStatus() != 2) {
             return Result.error("文章不存在或未发布");
         }
+        
+        // 增加浏览量
+        articleService.incrementViews(id);
+        
         return Result.success(article);
     }
 } 
