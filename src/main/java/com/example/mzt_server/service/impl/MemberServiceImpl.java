@@ -5,11 +5,13 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.mzt_server.dto.MemberDTO;
 import com.example.mzt_server.entity.Member;
+import com.example.mzt_server.entity.Organization;
 import com.example.mzt_server.entity.Role;
 import com.example.mzt_server.entity.Title;
 import com.example.mzt_server.mapper.MemberMapper;
 import com.example.mzt_server.mapper.MemberRoleMapper;
 import com.example.mzt_server.mapper.MemberTitleMapper;
+import com.example.mzt_server.mapper.OrganizationMapper;
 import com.example.mzt_server.mapper.RoleMapper;
 import com.example.mzt_server.mapper.TitleMapper;
 import com.example.mzt_server.service.MemberService;
@@ -41,6 +43,9 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     @Autowired
     private MemberTitleMapper memberTitleMapper;
     
+    @Autowired
+    private OrganizationMapper organizationMapper;
+    
     @Override
     public IPage<MemberDTO> pageMember(long current, long size, String name, Integer gender, 
                                     Integer cityId, Integer roleId, Integer status) {
@@ -51,6 +56,19 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         IPage<MemberDTO> dtoPage = memberPage.convert(member -> {
             MemberDTO dto = new MemberDTO();
             BeanUtils.copyProperties(member, dto);
+            
+            // 组装 organizationName
+            String orgName = null;
+            if (member.getOrganizationId() != null) {
+                Organization org = organizationMapper.selectById(member.getOrganizationId());
+                if (org != null) {
+                    orgName = org.getName();
+                }
+            }
+            if (orgName == null || orgName.isEmpty()) {
+                orgName = member.getOrganization();
+            }
+            dto.setOrganizationName(orgName);
             
             // 获取角色列表
             List<Role> roles = roleMapper.selectRolesByMemberId(member.getId());
@@ -77,6 +95,19 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         
         MemberDTO dto = new MemberDTO();
         BeanUtils.copyProperties(member, dto);
+        
+        // 组装 organizationName
+        String orgName = null;
+        if (member.getOrganizationId() != null) {
+            Organization org = organizationMapper.selectById(member.getOrganizationId());
+            if (org != null) {
+                orgName = org.getName();
+            }
+        }
+        if (orgName == null || orgName.isEmpty()) {
+            orgName = member.getOrganization();
+        }
+        dto.setOrganizationName(orgName);
         
         // 获取角色列表
         List<Role> roles = roleMapper.selectRolesByMemberId(id);

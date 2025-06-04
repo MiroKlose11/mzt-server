@@ -14,6 +14,12 @@ CREATE TABLE `member` (
   CONSTRAINT `fk_member_city` FOREIGN KEY (`city_id`) REFERENCES `city`(`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='成员表';
 
+--加入一个organization_id，通过id查询机构表
+ALTER TABLE `member`
+ADD COLUMN `organization_id` INT UNSIGNED DEFAULT NULL COMMENT '所属机构ID',
+ADD CONSTRAINT `fk_member_organization` FOREIGN KEY (`organization_id`) REFERENCES `organization`(`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+ADD INDEX `idx_organization_id` (`organization_id`);
+
 CREATE TABLE `role` (
   `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(50) NOT NULL COMMENT '唯一标识，如 doctor、lecturer',

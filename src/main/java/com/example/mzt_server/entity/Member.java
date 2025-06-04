@@ -1,7 +1,6 @@
 package com.example.mzt_server.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -37,7 +36,12 @@ public class Member {
     private Integer gender;
     
     /**
-     * 所属单位/机构
+     * 机构ID，关联 organization 表
+     */
+    private Integer organizationId;
+    
+    /**
+     * 备用机构名称（兜底用）
      */
     private String organization;
     

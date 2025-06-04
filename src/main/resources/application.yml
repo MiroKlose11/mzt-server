@@ -118,7 +118,9 @@ springdoc:
     - group: '角色管理接口'
       paths-to-match: '/role/**'
     - group: '头衔管理接口'
-      paths-to-match: '/title/**'
+      paths-to-match: '/title/**' 
+    - group: '机构管理接口'   
+      paths-to-match: '/organization/**'
   default-flat-param-object: true
 
 knife4j:
