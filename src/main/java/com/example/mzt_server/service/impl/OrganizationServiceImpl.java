@@ -7,6 +7,7 @@ import com.example.mzt_server.entity.Organization;
 import com.example.mzt_server.mapper.OrganizationMapper;
 import com.example.mzt_server.service.CityService;
 import com.example.mzt_server.service.OrganizationService;
+import com.example.mzt_server.service.OrganizationTypeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,9 @@ import java.util.stream.Collectors;
 public class OrganizationServiceImpl extends ServiceImpl<OrganizationMapper, Organization> implements OrganizationService {
     @Autowired
     private CityService cityService;
+    
+    @Autowired
+    private OrganizationTypeService organizationTypeService;
     
     @Override
     public List<OrganizationDTO> listAll() {
@@ -66,9 +70,14 @@ public class OrganizationServiceImpl extends ServiceImpl<OrganizationMapper, Org
         OrganizationDTO dto = new OrganizationDTO();
         BeanUtils.copyProperties(org, dto);
         
-        // 设置城市名称
+        // 设置城市名称（使用二级城市名称）
         if (org.getCityId() != null) {
-            dto.setCityName(cityService.getCityNameWithSuffix(org.getCityId()));
+            dto.setCityName(cityService.getCityNameByLevel(org.getCityId()));
+        }
+        
+        // 设置机构类型名称
+        if (org.getTypeId() != null) {
+            dto.setTypeName(organizationTypeService.getTypeNameById(org.getTypeId()));
         }
         
         return dto;

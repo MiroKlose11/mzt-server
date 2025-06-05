@@ -19,6 +19,9 @@ public class OrganizationDTO {
 
     @Schema(description = "机构类型ID", required = true)
     private Integer typeId;
+    
+    @Schema(description = "机构类型名称", accessMode = Schema.AccessMode.READ_ONLY)
+    private String typeName;
 
     @Schema(description = "机构地址")
     private String address;

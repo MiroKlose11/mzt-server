@@ -1,7 +1,7 @@
 package com.example.mzt_server.controller;
 
 import com.example.mzt_server.common.Result;
-import com.example.mzt_server.dto.CityDTO;
+import com.example.mzt_server.dto.CityTreeDTO;
 import com.example.mzt_server.service.CityService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,10 +23,10 @@ public class CityController {
     @Autowired
     private CityService cityService;
     
-    @Operation(summary = "获取城市列表", description = "获取所有城市数据，用于省市区级联选择")
+    @Operation(summary = "获取城市列表", description = "获取省市区三级树形结构，用于级联选择器")
     @GetMapping("/list")
-    public Result<List<CityDTO>> getList() {
-        List<CityDTO> cityDTOList = cityService.getCityDTOList();
-        return Result.success(cityDTOList);
+    public Result<List<CityTreeDTO>> getList() {
+        List<CityTreeDTO> cityTree = cityService.getCityTree();
+        return Result.success(cityTree);
     }
 } 

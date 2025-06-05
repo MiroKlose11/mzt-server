@@ -121,8 +121,10 @@ springdoc:
       paths-to-match: '/title/**' 
     - group: '机构管理接口'   
       paths-to-match: '/organization/**'
+    - group: '机构类型管理接口'
+      paths-to-match: '/organization-type/**' 
   default-flat-param-object: true
-
+    
 knife4j:
   enable: true
   setting:
