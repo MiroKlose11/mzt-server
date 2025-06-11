@@ -122,7 +122,9 @@ springdoc:
     - group: '机构管理接口'   
       paths-to-match: '/organization/**'
     - group: '机构类型管理接口'
-      paths-to-match: '/organization-type/**' 
+      paths-to-match: '/organization-type/**'  
+    - group: '学生管理接口'
+      paths-to-match: '/student/**' 
   default-flat-param-object: true
     
 knife4j:
