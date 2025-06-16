@@ -6,6 +6,17 @@ spring:
     ansi:
       # 启用控制台彩色输出
       enabled: ALWAYS
+  # 文件上传配置
+  servlet:
+    multipart:
+      # 启用文件上传
+      enabled: true
+      # 单个文件最大大小
+      max-file-size: 5GB
+      # 单个请求最大大小(包含所有文件)
+      max-request-size: 5GB
+      # 文件写入磁盘的阈值
+      file-size-threshold: 2MB
   # 数据源配置
   datasource:
     # 数据库驱动类名
@@ -122,9 +133,13 @@ springdoc:
     - group: '机构管理接口'   
       paths-to-match: '/organization/**'
     - group: '机构类型管理接口'
-      paths-to-match: '/organization-type/**'  
+      paths-to-match: '/organization-type/**' 
     - group: '学生管理接口'
-      paths-to-match: '/student/**' 
+      paths-to-match: '/student/**'   
+    - group: '课程管理接口'
+      paths-to-match: '/course/**'    
+    - group: '岗位管理接口'
+      paths-to-match: '/position/**'  
   default-flat-param-object: true
     
 knife4j:
@@ -158,6 +173,17 @@ server:
   # 服务端口
   port: 8080
   address: 0.0.0.0
+  # Tomcat配置
+  tomcat:
+    # 连接超时时间(毫秒)，设置为30分钟
+    connection-timeout: 1800000
+    # 最大连接数
+    max-connections: 10000
+    # 最大线程数
+    max-threads: 200
+    # 接受队列大小
+    accept-count: 100
+
 # 日志配置
 logging:
   level:

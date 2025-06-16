@@ -50,29 +50,6 @@ public class CityServiceImpl extends ServiceImpl<CityMapper, City> implements Ci
     }
     
     @Override
-    public String getCityNameByLevel(Integer cityId) {
-        if (cityId == null) {
-            return null;
-        }
-        
-        City city = this.getById(cityId);
-        if (city == null) {
-            return null;
-        }
-        
-        // 如果是三级城市（区县），查找其父级（市级）
-        if (city.getLeveltype() == 3) {
-            City parentCity = this.getById(city.getParentid());
-            if (parentCity != null) {
-                return parentCity.getName();
-            }
-        }
-        
-        // 如果是一级（省）或二级（市），直接返回名称
-        return city.getName();
-    }
-    
-    @Override
     public List<CityDTO> getCityDTOList() {
         LambdaQueryWrapper<City> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(City::getStatus, "1"); // 只获取状态为启用的城市

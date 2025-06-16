@@ -70,9 +70,9 @@ public class OrganizationServiceImpl extends ServiceImpl<OrganizationMapper, Org
         OrganizationDTO dto = new OrganizationDTO();
         BeanUtils.copyProperties(org, dto);
         
-        // 设置城市名称（使用二级城市名称）
+        // 设置城市名称
         if (org.getCityId() != null) {
-            dto.setCityName(cityService.getCityNameByLevel(org.getCityId()));
+            dto.setCityName(cityService.getCityNameWithSuffix(org.getCityId()));
         }
         
         // 设置机构类型名称

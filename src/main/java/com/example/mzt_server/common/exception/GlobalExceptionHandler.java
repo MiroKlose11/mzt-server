@@ -7,6 +7,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.multipart.MultipartException;
 
 import java.util.stream.Collectors;
 
@@ -48,6 +50,24 @@ public class GlobalExceptionHandler {
                 .collect(Collectors.joining(", "));
         log.warn("参数绑定异常: {}", message);
         return Result.error(ErrorEnum.PARAM_ERROR.getCode(), message);
+    }
+
+    /**
+     * 文件大小超出限制异常处理
+     */
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public Result<Void> handleMaxUploadSizeExceededException(MaxUploadSizeExceededException e) {
+        log.warn("文件大小超出限制: {}", e.getMessage());
+        return Result.error(ErrorEnum.FILE_SIZE_EXCEEDED.getCode(), ErrorEnum.FILE_SIZE_EXCEEDED.getMessage());
+    }
+
+    /**
+     * 文件上传异常处理
+     */
+    @ExceptionHandler(MultipartException.class)
+    public Result<Void> handleMultipartException(MultipartException e) {
+        log.warn("文件上传异常: {}", e.getMessage());
+        return Result.error(ErrorEnum.FILE_UPLOAD_FAILED.getCode(), ErrorEnum.FILE_UPLOAD_FAILED.getMessage());
     }
 
     /**

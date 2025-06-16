@@ -66,7 +66,22 @@ public enum ErrorEnum {
     /**
      * 资源不存在
      */
-    RESOURCE_NOT_FOUND("A0404", "资源不存在");
+    RESOURCE_NOT_FOUND("A0404", "资源不存在"),
+    
+    /**
+     * 文件大小超出限制
+     */
+    FILE_SIZE_EXCEEDED("A0410", "上传文件大小超出限制，最大允许5GB"),
+    
+    /**
+     * 文件上传失败
+     */
+    FILE_UPLOAD_FAILED("A0411", "文件上传失败，请检查文件格式或网络连接"),
+    
+    /**
+     * 文件类型不支持
+     */
+    FILE_TYPE_NOT_SUPPORTED("A0412", "不支持的文件类型");
 
     /**
      * 错误码
