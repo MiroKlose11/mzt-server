@@ -21,6 +21,7 @@ public interface MemberMapper extends BaseMapper<Member> {
      * @param cityId 城市ID（可选）
      * @param roleId 角色ID（可选）
      * @param status 状态（可选）
+     * @param userId 用户ID（可选）
      * @return 分页结果
      */
     IPage<Member> selectMemberPage(Page<Member> page, 
@@ -28,5 +29,6 @@ public interface MemberMapper extends BaseMapper<Member> {
                                   @Param("gender") Integer gender,
                                   @Param("cityId") Integer cityId,
                                   @Param("roleId") Integer roleId,
-                                  @Param("status") Integer status);
+                                  @Param("status") Integer status,
+                                  @Param("userId") Integer userId);
 } 

@@ -19,6 +19,9 @@
             <if test="status != null">
                 AND m.status = #{status}
             </if>
+            <if test="userId != null">
+                AND m.user_id = #{userId}
+            </if>
             <if test="roleId != null">
                 AND EXISTS (
                     SELECT 1 FROM member_role mr 

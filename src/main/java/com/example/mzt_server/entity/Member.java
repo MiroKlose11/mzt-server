@@ -61,6 +61,11 @@ public class Member {
     private Integer status;
     
     /**
+     * 用户ID，关联用户表
+     */
+    private Integer userId;
+    
+    /**
      * 创建时间
      */
     private LocalDateTime createdAt;

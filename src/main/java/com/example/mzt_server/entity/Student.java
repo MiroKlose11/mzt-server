@@ -45,6 +45,11 @@ public class Student {
     private Integer organizationId;
     
     /**
+     * 用户ID，关联用户表
+     */
+    private Integer userId;
+    
+    /**
      * 状态：1=启用，0=禁用
      */
     private Integer status;

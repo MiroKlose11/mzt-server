@@ -1,6 +1,6 @@
 package com.example.mzt_server.controller;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.example.mzt_server.common.Result;
 import com.example.mzt_server.dto.StudentDTO;
 import com.example.mzt_server.service.StudentService;
@@ -31,12 +31,15 @@ public class StudentController {
     
     @Operation(summary = "分页获取学生列表")
     @GetMapping("/page")
-    public Result<Page<StudentDTO>> page(
+    public Result<IPage<StudentDTO>> page(
             @Parameter(description = "页码，从1开始") @RequestParam(defaultValue = "1") Integer current,
             @Parameter(description = "每页大小") @RequestParam(defaultValue = "10") Integer size,
             @Parameter(description = "学生姓名，支持模糊查询") @RequestParam(required = false) String name,
-            @Parameter(description = "所属机构ID") @RequestParam(required = false) Integer organizationId) {
-        Page<StudentDTO> page = studentService.page(current, size, name, organizationId);
+            @Parameter(description = "性别：0=未知，1=男，2=女") @RequestParam(required = false) Integer gender,
+            @Parameter(description = "所属机构ID") @RequestParam(required = false) Integer organizationId,
+            @Parameter(description = "用户ID") @RequestParam(required = false) Integer userId,
+            @Parameter(description = "状态：1=启用，0=禁用") @RequestParam(required = false) Integer status) {
+        IPage<StudentDTO> page = studentService.page(current, size, name, gender, organizationId, userId, status);
         return Result.success(page);
     }
 

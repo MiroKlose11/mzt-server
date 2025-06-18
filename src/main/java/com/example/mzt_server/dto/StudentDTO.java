@@ -31,6 +31,9 @@ public class StudentDTO {
     
     @Schema(description = "所属机构名称", accessMode = Schema.AccessMode.READ_ONLY)
     private String organizationName;
+    
+    @Schema(description = "用户ID，关联系统用户")
+    private Integer userId;
 
     @Schema(description = "状态：1=启用，0=禁用")
     private Integer status;

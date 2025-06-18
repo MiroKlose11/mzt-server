@@ -14,6 +14,10 @@ CREATE TABLE `member` (
   CONSTRAINT `fk_member_city` FOREIGN KEY (`city_id`) REFERENCES `city`(`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='成员表';
 
+--加入一个user_id，通过id查询用户表
+ALTER TABLE member ADD COLUMN user_id INT UNSIGNED DEFAULT NULL;
+ALTER TABLE `member` ADD CONSTRAINT `fk_member_user` FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON DELETE SET NULL;
+
 --加入一个organization_id，通过id查询机构表
 ALTER TABLE `member`
 ADD COLUMN `organization_id` INT UNSIGNED DEFAULT NULL COMMENT '所属机构ID',
@@ -69,7 +73,6 @@ CREATE TABLE `member_title` (
   CONSTRAINT `fk_member_title_member` FOREIGN KEY (`member_id`) REFERENCES `member`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_member_title_title` FOREIGN KEY (`title_id`) REFERENCES `title`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='成员-头衔关联表';
-
 
 INSERT INTO `role` (`code`, `name`, `description`, `sort`) VALUES
 ('doctor', '医生', '具有执业资格的临床医生', 100),

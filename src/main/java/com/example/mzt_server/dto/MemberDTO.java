@@ -45,6 +45,9 @@ public class MemberDTO {
     @Schema(description = "状态：1=启用 0=禁用")
     private Integer status;
     
+    @Schema(description = "用户ID，关联系统用户")
+    private Integer userId;
+    
     @Schema(description = "创建时间", accessMode = Schema.AccessMode.READ_ONLY)
     private LocalDateTime createdAt;
     

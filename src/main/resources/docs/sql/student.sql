@@ -13,6 +13,11 @@ CREATE TABLE `student` (
   CONSTRAINT `fk_student_organization` FOREIGN KEY (`organization_id`) REFERENCES `organization`(`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='学生表';
 
+--加入一个user_id，通过id查询用户表
+ALTER TABLE student ADD COLUMN user_id INT UNSIGNED DEFAULT NULL;
+ALTER TABLE `student` ADD CONSTRAINT `fk_student_user` FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON DELETE SET NULL;
+
+
 INSERT INTO `student` (`name`, `avatar`, `gender`, `signature`, `organization_id`)
 VALUES 
 ('张小美', NULL, 2, '热爱美学，追求极致～', NULL),

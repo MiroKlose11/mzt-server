@@ -35,9 +35,10 @@ public class MemberController {
             @Parameter(description = "性别 0=未知 1=男 2=女") @RequestParam(required = false) Integer gender,
             @Parameter(description = "职业所在地ID") @RequestParam(required = false) Integer cityId,
             @Parameter(description = "角色ID") @RequestParam(required = false) Integer roleId,
-            @Parameter(description = "状态：1=启用 0=禁用") @RequestParam(required = false) Integer status) {
+            @Parameter(description = "状态：1=启用 0=禁用") @RequestParam(required = false) Integer status,
+            @Parameter(description = "用户ID") @RequestParam(required = false) Integer userId) {
         
-        IPage<MemberDTO> page = memberService.pageMember(current, size, name, gender, cityId, roleId, status);
+        IPage<MemberDTO> page = memberService.pageMember(current, size, name, gender, cityId, roleId, status, userId);
         return Result.success(page);
     }
     

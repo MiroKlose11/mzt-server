@@ -1,5 +1,6 @@
 package com.example.mzt_server.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.mzt_server.dto.StudentDTO;
@@ -22,10 +23,13 @@ public interface StudentService extends IService<Student> {
      * @param page 页码
      * @param size 每页大小
      * @param name 姓名（可选，模糊查询）
+     * @param gender 性别（可选）
      * @param organizationId 机构ID（可选）
+     * @param userId 用户ID（可选）
+     * @param status 状态（可选）
      * @return 分页学生DTO列表
      */
-    Page<StudentDTO> page(int page, int size, String name, Integer organizationId);
+    IPage<StudentDTO> page(int page, int size, String name, Integer gender, Integer organizationId, Integer userId, Integer status);
     
     /**
      * 根据ID获取学生
