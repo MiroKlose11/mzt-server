@@ -44,7 +44,23 @@ public class FileController {
             return Result.error("上传失败，请选择文件");
         }
         try {
-            String fileUrl = tencentCosUtils.uploadFile(file, directory);
+            // 自动判断目录
+            String dir = directory;
+            if (dir == null || dir.trim().isEmpty()) {
+                String contentType = file.getContentType();
+                if (contentType != null) {
+                    if (contentType.startsWith("image/")) {
+                        dir = "images";
+                    } else if (contentType.startsWith("video/")) {
+                        dir = "videos";
+                    } else {
+                        dir = "others";
+                    }
+                } else {
+                    dir = "others";
+                }
+            }
+            String fileUrl = tencentCosUtils.uploadFile(file, dir);
             return Result.success(fileUrl);
         } catch (IOException e) {
             logger.error("File upload failed due to IOException. FileName: {}, Directory: {}", file.getOriginalFilename(), directory, e);

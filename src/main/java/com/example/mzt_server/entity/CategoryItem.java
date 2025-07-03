@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Data
 @TableName("category_item")
 public class CategoryItem {
-    @TableId(type = IdType.ASSIGN_ID)
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /** 分类类型（如service/platform/course/job） */

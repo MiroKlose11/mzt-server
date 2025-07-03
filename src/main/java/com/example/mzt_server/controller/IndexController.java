@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 首页统一接口控制器
@@ -70,11 +71,12 @@ public class IndexController {
     @Operation(summary = "获取所有分类数据", description = "获取所有类型的分类数据")
     @GetMapping("/categories")
     public Result<Map<String, List<CategoryItem>>> getAllCategories() {
-        Map<String, List<CategoryItem>> result = new HashMap<>();
-        result.put("services", categoryItemService.getItemsByCategoryType("service"));
-        result.put("platforms", categoryItemService.getItemsByCategoryType("platform"));
-        result.put("courses", categoryItemService.getItemsByCategoryType("course"));
-        result.put("jobs", categoryItemService.getItemsByCategoryType("job"));
+        // 查询所有已启用的分类条目
+        List<CategoryItem> allItems = categoryItemService.list();
+        // 按categoryType分组
+        Map<String, List<CategoryItem>> result = allItems.stream()
+                .filter(item -> item.getStatus() != null && item.getStatus() == 1)
+                .collect(Collectors.groupingBy(CategoryItem::getCategoryType));
         return Result.success(result);
     }
     
@@ -90,11 +92,14 @@ public class IndexController {
         result.put("topBanners", bannerService.getBannersByPosition(1));
         result.put("introductionBanners", bannerService.getBannersByPosition(2));
         
-        // 添加分类数据
-        result.put("services", categoryItemService.getItemsByCategoryType("service"));
-        result.put("platforms", categoryItemService.getItemsByCategoryType("platform"));
-        result.put("courses", categoryItemService.getItemsByCategoryType("course"));
-        result.put("jobs", categoryItemService.getItemsByCategoryType("job"));
+        // 查询所有已启用的分类条目
+        List<CategoryItem> allItems = categoryItemService.list();
+        // 按categoryType分组
+        Map<String, List<CategoryItem>> categoryMap = allItems.stream()
+                .filter(item -> item.getStatus() != null && item.getStatus() == 1)
+                .collect(Collectors.groupingBy(CategoryItem::getCategoryType));
+        // 合并到result
+        result.putAll(categoryMap);
         
         return Result.success(result);
     }

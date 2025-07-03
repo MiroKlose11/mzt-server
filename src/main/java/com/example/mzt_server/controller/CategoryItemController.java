@@ -11,8 +11,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 分类条目管理控制器
@@ -141,8 +142,11 @@ public class CategoryItemController {
     @Operation(summary = "获取所有分类类型", description = "获取系统中所有的分类类型")
     @GetMapping("/homepage/category-item/types")
     public Result<List<String>> getAllTypes() {
-        // 预定义的分类类型
-        List<String> types = Arrays.asList("service", "platform", "course", "job");
+        // 动态获取所有已存在的category_type
+        List<String> types = categoryItemService.list().stream()
+                .map(CategoryItem::getCategoryType)
+                .distinct()
+                .collect(Collectors.toList());
         return Result.success(types);
     }
 } 
