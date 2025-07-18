@@ -48,9 +48,9 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     
     @Override
     public IPage<MemberDTO> pageMember(long current, long size, String name, Integer gender, 
-                                    Integer cityId, Integer roleId, Integer status, Integer userId) {
+                                    Integer cityId, Integer roleId, Integer status, Integer weight, Integer isElite, Integer userId) {
         Page<Member> page = new Page<>(current, size);
-        IPage<Member> memberPage = baseMapper.selectMemberPage(page, name, gender, cityId, roleId, status, userId);
+        IPage<Member> memberPage = baseMapper.selectMemberPage(page, name, gender, cityId, roleId, status, weight, isElite, userId);
         
         // 转换为DTO
         IPage<MemberDTO> dtoPage = memberPage.convert(member -> {

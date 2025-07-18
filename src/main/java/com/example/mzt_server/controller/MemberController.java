@@ -36,9 +36,11 @@ public class MemberController {
             @Parameter(description = "职业所在地ID") @RequestParam(required = false) Integer cityId,
             @Parameter(description = "角色ID") @RequestParam(required = false) Integer roleId,
             @Parameter(description = "状态：1=启用 0=禁用") @RequestParam(required = false) Integer status,
+            @Parameter(description = "权重，越大越靠前") @RequestParam(required = false) Integer weight,
+            @Parameter(description = "是否为精英成员：0=否，1=是") @RequestParam(required = false) Integer isElite,
             @Parameter(description = "用户ID") @RequestParam(required = false) Integer userId) {
         
-        IPage<MemberDTO> page = memberService.pageMember(current, size, name, gender, cityId, roleId, status, userId);
+        IPage<MemberDTO> page = memberService.pageMember(current, size, name, gender, cityId, roleId, status, weight, isElite, userId);
         return Result.success(page);
     }
     

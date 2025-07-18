@@ -61,6 +61,16 @@ public class Member {
     private Integer status;
     
     /**
+     * 权重，越大越靠前
+     */
+    private Integer weight;
+    
+    /**
+     * 是否为精英成员：0=否，1=是
+     */
+    private Integer isElite;
+    
+    /**
      * 用户ID，关联用户表
      */
     private Integer userId;

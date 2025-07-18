@@ -19,11 +19,13 @@ public interface MemberService extends IService<Member> {
      * @param cityId 城市ID（可选）
      * @param roleId 角色ID（可选）
      * @param status 状态（可选）
+     * @param weight 权重（可选）
+     * @param isElite 是否精英成员（可选）
      * @param userId 用户ID（可选）
      * @return 分页结果
      */
     IPage<MemberDTO> pageMember(long current, long size, String name, Integer gender, 
-                              Integer cityId, Integer roleId, Integer status, Integer userId);
+                              Integer cityId, Integer roleId, Integer status, Integer weight, Integer isElite, Integer userId);
     
     /**
      * 根据ID获取成员详情

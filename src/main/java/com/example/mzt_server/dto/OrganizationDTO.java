@@ -34,9 +34,15 @@ public class OrganizationDTO {
 
     @Schema(description = "联系电话")
     private String phone;
+    
+    @Schema(description = "机构封面图URL")
+    private String avatar;
 
     @Schema(description = "状态，1=启用，0=禁用")
     private Integer status;
+    
+    @Schema(description = "权重，越大越靠前")
+    private Integer weight;
 
     @Schema(description = "创建时间", accessMode = Schema.AccessMode.READ_ONLY)
     private LocalDateTime createdAt;

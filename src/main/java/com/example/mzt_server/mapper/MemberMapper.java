@@ -21,6 +21,8 @@ public interface MemberMapper extends BaseMapper<Member> {
      * @param cityId 城市ID（可选）
      * @param roleId 角色ID（可选）
      * @param status 状态（可选）
+     * @param weight 权重（可选）
+     * @param isElite 是否精英成员（可选）
      * @param userId 用户ID（可选）
      * @return 分页结果
      */
@@ -30,5 +32,7 @@ public interface MemberMapper extends BaseMapper<Member> {
                                   @Param("cityId") Integer cityId,
                                   @Param("roleId") Integer roleId,
                                   @Param("status") Integer status,
+                                  @Param("weight") Integer weight,
+                                  @Param("isElite") Integer isElite,
                                   @Param("userId") Integer userId);
 } 

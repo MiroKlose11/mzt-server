@@ -14,6 +14,11 @@ CREATE TABLE `member` (
   CONSTRAINT `fk_member_city` FOREIGN KEY (`city_id`) REFERENCES `city`(`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='成员表';
 
+ALTER TABLE `member`
+ADD COLUMN `weight` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '权重，越大越靠前' AFTER `status`,
+ADD COLUMN `is_elite` TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '是否为精英成员：0=否，1=是' AFTER `weight`;
+
+
 --加入一个user_id，通过id查询用户表
 ALTER TABLE member ADD COLUMN user_id INT UNSIGNED DEFAULT NULL;
 ALTER TABLE `member` ADD CONSTRAINT `fk_member_user` FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON DELETE SET NULL;

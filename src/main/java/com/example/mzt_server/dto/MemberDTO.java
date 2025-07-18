@@ -45,6 +45,12 @@ public class MemberDTO {
     @Schema(description = "状态：1=启用 0=禁用")
     private Integer status;
     
+    @Schema(description = "权重，越大越靠前")
+    private Integer weight;
+    
+    @Schema(description = "是否为精英成员：0=否，1=是")
+    private Integer isElite;
+    
     @Schema(description = "用户ID，关联系统用户")
     private Integer userId;
     

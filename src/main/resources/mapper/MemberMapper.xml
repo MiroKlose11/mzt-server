@@ -19,6 +19,12 @@
             <if test="status != null">
                 AND m.status = #{status}
             </if>
+            <if test="weight != null">
+                AND m.weight = #{weight}
+            </if>
+            <if test="isElite != null">
+                AND m.is_elite = #{isElite}
+            </if>
             <if test="userId != null">
                 AND m.user_id = #{userId}
             </if>
@@ -29,6 +35,6 @@
                 )
             </if>
         </where>
-        ORDER BY m.updated_at DESC
+        ORDER BY m.weight DESC, m.updated_at DESC
     </select>
 </mapper> 
