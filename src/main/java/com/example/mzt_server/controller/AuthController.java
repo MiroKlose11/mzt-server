@@ -4,6 +4,7 @@ import com.example.mzt_server.common.Result;
 import com.example.mzt_server.common.vo.CaptchaInfo;
 import com.example.mzt_server.common.vo.LoginRequest;
 import com.example.mzt_server.common.vo.LoginResult;
+import com.example.mzt_server.common.vo.WechatLoginRequest;
 import com.example.mzt_server.service.IAuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -29,6 +30,16 @@ public class AuthController {
     @PostMapping("/login")
     public Result<LoginResult> login(@Validated @RequestBody LoginRequest request) {
         LoginResult result = authService.login(request);
+        return Result.success(result);
+    }
+
+    /**
+     * 微信小程序登录
+     */
+    @Operation(summary = "微信小程序登录", description = "微信小程序登录接口")
+    @PostMapping("/wechat-login")
+    public Result<LoginResult> wechatLogin(@Validated @RequestBody WechatLoginRequest request) {
+        LoginResult result = authService.wechatLogin(request);
         return Result.success(result);
     }
 

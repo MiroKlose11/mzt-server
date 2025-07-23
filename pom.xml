@@ -205,6 +205,27 @@
 			<artifactId>cos_api</artifactId>
 			<version>5.6.155</version> <!-- 更新到最新版本 -->
 		</dependency>
+		
+		<!-- 微信SDK -->
+		<dependency>
+			<groupId>com.github.binarywang</groupId>
+			<artifactId>weixin-java-mp</artifactId>
+			<version>4.5.0</version>
+		</dependency>
+		
+		<!-- Apache Commons Codec (用于微信数据解密) -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.15</version>
+		</dependency>
+		
+		<!-- HTTP客户端 -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.14</version>
+		</dependency>
 	</dependencies>
 
 	<build>

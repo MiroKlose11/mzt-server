@@ -3,6 +3,7 @@ package com.example.mzt_server.service;
 import com.example.mzt_server.common.vo.CaptchaInfo;
 import com.example.mzt_server.common.vo.LoginRequest;
 import com.example.mzt_server.common.vo.LoginResult;
+import com.example.mzt_server.common.vo.WechatLoginRequest;
 
 /**
  * 认证服务接口
@@ -16,6 +17,14 @@ public interface IAuthService {
      * @return 登录结果
      */
     LoginResult login(LoginRequest request);
+    
+    /**
+     * 微信小程序登录
+     *
+     * @param request 微信登录请求
+     * @return 登录结果
+     */
+    LoginResult wechatLogin(WechatLoginRequest request);
     
     /**
      * 刷新令牌

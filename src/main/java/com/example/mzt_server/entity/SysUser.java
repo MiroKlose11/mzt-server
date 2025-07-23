@@ -67,6 +67,11 @@ public class SysUser implements Serializable {
     private Integer status;
     
     /**
+     * 微信openid
+     */
+    private String openid;
+    
+    /**
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)

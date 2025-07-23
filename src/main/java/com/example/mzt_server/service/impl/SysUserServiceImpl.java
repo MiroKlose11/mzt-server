@@ -43,6 +43,19 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     }
 
     /**
+     * 根据openid查询用户
+     *
+     * @param openid 微信openid
+     * @return 用户信息
+     */
+    @Override
+    public SysUser getByOpenid(String openid) {
+        LambdaQueryWrapper<SysUser> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(SysUser::getOpenid, openid);
+        return getOne(wrapper);
+    }
+
+    /**
      * 验证密码
      *
      * @param rawPassword 原始密码

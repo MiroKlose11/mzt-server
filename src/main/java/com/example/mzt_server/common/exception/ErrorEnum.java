@@ -81,7 +81,12 @@ public enum ErrorEnum {
     /**
      * 文件类型不支持
      */
-    FILE_TYPE_NOT_SUPPORTED("A0412", "不支持的文件类型");
+    FILE_TYPE_NOT_SUPPORTED("A0412", "不支持的文件类型"),
+    
+    /**
+     * 微信登录失败
+     */
+    WECHAT_LOGIN_ERROR("A0413", "微信登录失败");
 
     /**
      * 错误码

@@ -148,6 +148,17 @@ knife4j:
     language: zh_cn
     swagger-model-name: 实体类列表
 
+# 微信配置
+wechat:
+  # 微信公众号配置
+  mp:
+    app-id: ${WECHAT_APP_ID:your_app_id}
+    secret: ${WECHAT_SECRET:your_secret}
+  # 微信小程序配置  
+  miniapp:
+    app-id: ${WECHAT_MINIAPP_ID:your_miniapp_id}
+    secret: ${WECHAT_MINIAPP_SECRET:your_miniapp_secret}
+
 # MyBatis Plus配置
 mybatis-plus:
   # MyBatis扫描别名包，和注解@Alias联用

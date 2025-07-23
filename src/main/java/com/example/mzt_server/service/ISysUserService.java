@@ -21,6 +21,14 @@ public interface ISysUserService extends IService<SysUser> {
     SysUser getByUsername(String username);
 
     /**
+     * 根据openid查询用户
+     *
+     * @param openid 微信openid
+     * @return 用户信息
+     */
+    SysUser getByOpenid(String openid);
+
+    /**
      * 验证密码
      *
      * @param rawPassword 原始密码

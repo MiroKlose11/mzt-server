@@ -5,17 +5,23 @@ import com.example.mzt_server.common.exception.ErrorEnum;
 import com.example.mzt_server.common.vo.CaptchaInfo;
 import com.example.mzt_server.common.vo.LoginRequest;
 import com.example.mzt_server.common.vo.LoginResult;
+import com.example.mzt_server.common.vo.WechatLoginRequest;
 import com.example.mzt_server.entity.SysUser;
+import com.example.mzt_server.entity.User;
 import com.example.mzt_server.service.ICaptchaService;
 import com.example.mzt_server.service.IAuthService;
 import com.example.mzt_server.service.ISysUserService;
+import com.example.mzt_server.service.IUserService;
+import com.example.mzt_server.service.IWechatService;
 import com.example.mzt_server.util.JwtUtils;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -28,6 +34,9 @@ public class AuthServiceImpl implements IAuthService {
     private ISysUserService userService;
 
     @Autowired
+    private IUserService miniappUserService;
+
+    @Autowired
     private ICaptchaService captchaService;
 
     @Autowired
@@ -35,6 +44,9 @@ public class AuthServiceImpl implements IAuthService {
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
+
+    @Autowired
+    private IWechatService wechatService;
 
     /**
      * 登录
@@ -67,6 +79,82 @@ public class AuthServiceImpl implements IAuthService {
 
         // 5. 生成令牌
         return generateTokens(user);
+    }
+
+    /**
+     * 微信小程序登录
+     *
+     * @param request 微信登录请求
+     * @return 登录结果
+     */
+    @Override
+    public LoginResult wechatLogin(WechatLoginRequest request) {
+        // 1. 通过code获取微信用户信息（包含openid和session_key）
+        Map<String, String> wechatUserInfo = wechatService.getWechatUserInfo(request.getCode());
+        String openid = wechatUserInfo.get("openid");
+        String sessionKey = wechatUserInfo.get("session_key");
+        String unionid = wechatUserInfo.get("unionid");
+        
+        // 2. 根据openid查找用户
+        User user = miniappUserService.getByOpenid(openid);
+        
+        // 3. 解密手机号（如果提供了加密数据）
+        String phoneNumber = null;
+        if (StringUtils.hasText(request.getEncryptedData()) && 
+            StringUtils.hasText(request.getIv()) && 
+            StringUtils.hasText(sessionKey)) {
+            try {
+                phoneNumber = wechatService.decryptPhoneNumber(
+                    request.getEncryptedData(), 
+                    request.getIv(), 
+                    sessionKey
+                );
+            } catch (Exception e) {
+                // 手机号解密失败不影响登录，只记录日志
+                System.out.println("手机号解密失败: " + e.getMessage());
+            }
+        }
+        
+        // 4. 如果用户不存在，则创建新用户
+        if (user == null) {
+            user = new User();
+            user.setOpenid(openid);
+            user.setUnionid(unionid);
+            user.setNickname(StringUtils.hasText(request.getNickName()) ? request.getNickName() : "微信用户");
+            user.setAvatar(request.getAvatarUrl());
+            user.setPhone(phoneNumber);
+            user.setGender(0); // 默认未知
+            
+            // 保存用户
+            miniappUserService.save(user);
+        } else {
+            // 5. 如果用户存在，更新用户信息
+            boolean needUpdate = false;
+            
+            if (StringUtils.hasText(request.getNickName()) && !request.getNickName().equals(user.getNickname())) {
+                user.setNickname(request.getNickName());
+                needUpdate = true;
+            }
+            if (StringUtils.hasText(request.getAvatarUrl()) && !request.getAvatarUrl().equals(user.getAvatar())) {
+                user.setAvatar(request.getAvatarUrl());
+                needUpdate = true;
+            }
+            if (StringUtils.hasText(phoneNumber) && !phoneNumber.equals(user.getPhone())) {
+                user.setPhone(phoneNumber);
+                needUpdate = true;
+            }
+            if (StringUtils.hasText(unionid) && !unionid.equals(user.getUnionid())) {
+                user.setUnionid(unionid);
+                needUpdate = true;
+            }
+            
+            if (needUpdate) {
+                miniappUserService.updateById(user);
+            }
+        }
+        
+        // 6. 生成令牌（这里需要调整生成令牌的方法，因为User和SysUser结构不同）
+        return generateMiniappUserTokens(user);
     }
 
     /**
@@ -161,6 +249,27 @@ public class AuthServiceImpl implements IAuthService {
         // 生成令牌
         String accessToken = jwtUtils.generateAccessToken(user.getUsername(), roles, user.getId());
         String refreshToken = jwtUtils.generateRefreshToken(user.getUsername(), roles, user.getId());
+        
+        // 构建返回结果
+        LoginResult result = new LoginResult();
+        result.setAccessToken(accessToken);
+        result.setRefreshToken(refreshToken);
+        result.setTokenType("Bearer");
+        result.setExpiresIn(jwtUtils.getAccessTokenExpiration());
+        
+        return result;
+    }
+    
+    /**
+     * 为小程序用户生成令牌
+     */
+    private LoginResult generateMiniappUserTokens(User user) {
+        // 小程序用户暂时没有角色系统，使用空角色列表
+        List<String> roles = List.of("USER");
+        
+        // 生成令牌，使用openid作为用户名
+        String accessToken = jwtUtils.generateAccessToken(user.getOpenid(), roles, user.getId());
+        String refreshToken = jwtUtils.generateRefreshToken(user.getOpenid(), roles, user.getId());
         
         // 构建返回结果
         LoginResult result = new LoginResult();
