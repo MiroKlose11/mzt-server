@@ -5,7 +5,7 @@ import com.example.mzt_server.common.vo.CaptchaInfo;
 /**
  * 验证码服务接口
  */
-public interface ICaptchaService {
+public interface CaptchaService {
     
     /**
      * 生成验证码

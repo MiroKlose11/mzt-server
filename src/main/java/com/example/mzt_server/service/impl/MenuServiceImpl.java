@@ -9,7 +9,7 @@ import com.example.mzt_server.common.vo.OptionLong;
 import com.example.mzt_server.common.vo.RouteVO;
 import com.example.mzt_server.entity.SysMenu;
 import com.example.mzt_server.mapper.SysMenuMapper;
-import com.example.mzt_server.service.IMenuService;
+import com.example.mzt_server.service.MenuService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.BeanUtils;
@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
  * 菜单服务实现类
  */
 @Service
-public class MenuServiceImpl implements IMenuService {
+public class MenuServiceImpl implements MenuService {
     @Autowired
     private SysMenuMapper sysMenuMapper;
 
@@ -465,4 +465,4 @@ public class MenuServiceImpl implements IMenuService {
         
         return routeList;
     }
-} 
+}

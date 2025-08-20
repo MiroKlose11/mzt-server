@@ -3,6 +3,7 @@ package com.example.mzt_server.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -12,7 +13,8 @@ import java.time.LocalDateTime;
 @Data
 @TableName("sys_user")
 public class SysUser implements Serializable {
-    
+
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**

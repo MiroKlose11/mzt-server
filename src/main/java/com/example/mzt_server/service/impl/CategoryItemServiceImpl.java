@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.mzt_server.entity.CategoryItem;
 import com.example.mzt_server.mapper.CategoryItemMapper;
-import com.example.mzt_server.service.ICategoryItemService;
+import com.example.mzt_server.service.CategoryItemService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * 首页分类条目服务实现类
  */
 @Service
-public class CategoryItemServiceImpl extends ServiceImpl<CategoryItemMapper, CategoryItem> implements ICategoryItemService {
+public class CategoryItemServiceImpl extends ServiceImpl<CategoryItemMapper, CategoryItem> implements CategoryItemService {
     @Override
     public List<CategoryItem> getItemsByCategoryType(String categoryType) {
         LambdaQueryWrapper<CategoryItem> queryWrapper = new LambdaQueryWrapper<>();
@@ -22,4 +22,4 @@ public class CategoryItemServiceImpl extends ServiceImpl<CategoryItemMapper, Cat
                     .orderByAsc(CategoryItem::getSort);
         return this.list(queryWrapper);
     }
-} 
+}

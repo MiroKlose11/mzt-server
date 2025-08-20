@@ -5,21 +5,27 @@ import com.example.mzt_server.common.exception.ErrorEnum;
 import com.example.mzt_server.common.vo.CaptchaInfo;
 import com.example.mzt_server.common.vo.LoginRequest;
 import com.example.mzt_server.common.vo.LoginResult;
+import com.example.mzt_server.common.vo.RegisterRequest;
 import com.example.mzt_server.common.vo.WechatLoginRequest;
+import com.example.mzt_server.common.vo.MiniappLoginRequest;
 import com.example.mzt_server.entity.SysUser;
 import com.example.mzt_server.entity.User;
-import com.example.mzt_server.service.ICaptchaService;
-import com.example.mzt_server.service.IAuthService;
-import com.example.mzt_server.service.ISysUserService;
-import com.example.mzt_server.service.IUserService;
-import com.example.mzt_server.service.IWechatService;
+import com.example.mzt_server.service.CaptchaService;
+import com.example.mzt_server.service.AuthService;
+import com.example.mzt_server.service.SysUserService;
+import com.example.mzt_server.service.UserService;
+import com.example.mzt_server.service.WechatService;
+import com.example.mzt_server.service.SmsService;
 import com.example.mzt_server.util.JwtUtils;
 import io.jsonwebtoken.Claims;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -27,17 +33,18 @@ import java.util.concurrent.TimeUnit;
 /**
  * 认证服务实现类
  */
+@Slf4j
 @Service
-public class AuthServiceImpl implements IAuthService {
+public class AuthServiceImpl implements AuthService {
 
     @Autowired
-    private ISysUserService userService;
+    private SysUserService userService;
 
     @Autowired
-    private IUserService miniappUserService;
+    private UserService miniappUserService;
 
     @Autowired
-    private ICaptchaService captchaService;
+    private CaptchaService captchaService;
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -46,7 +53,49 @@ public class AuthServiceImpl implements IAuthService {
     private RedisTemplate<String, String> redisTemplate;
 
     @Autowired
-    private IWechatService wechatService;
+    private WechatService wechatService;
+
+    @Autowired
+    private SmsService smsService;
+    
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    private static final String REFRESH_TOKEN_PREFIX = "refresh_token:";
+
+    /**
+     * 手机号快速注册
+     *
+     * @param request 注册请求
+     * @return 登录结果
+     */
+    @Override
+    public LoginResult register(RegisterRequest request) {
+        // 1. 验证短信验证码
+        if (!smsService.validateLoginCode(request.getPhone(), request.getSmsCode(), request.getSmsKey())) {
+            throw new BusinessException(ErrorEnum.SMS_CODE_ERROR);
+        }
+
+        // 2. 检查手机号是否已注册
+        User existingUser = miniappUserService.getByPhone(request.getPhone());
+        if (existingUser != null) {
+            throw new BusinessException(ErrorEnum.PHONE_ALREADY_EXISTS);
+        }
+
+        // 3. 创建新用户
+        User user = new User();
+        user.setPhone(request.getPhone());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setNickname("用户" + request.getPhone().substring(7)); // 默认昵称
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
+
+        // 4. 保存用户
+        miniappUserService.save(user);
+
+        // 5. 生成令牌
+        return generateMiniappUserTokens(user);
+    }
 
     /**
      * 登录
@@ -109,10 +158,10 @@ public class AuthServiceImpl implements IAuthService {
                     request.getIv(), 
                     sessionKey
                 );
-            } catch (Exception e) {
-                // 手机号解密失败不影响登录，只记录日志
-                System.out.println("手机号解密失败: " + e.getMessage());
-            }
+                         } catch (Exception e) {
+                 // 手机号解密失败不影响登录，只记录日志
+                 log.warn("手机号解密失败: {}", e.getMessage());
+             }
         }
         
         // 4. 如果用户不存在，则创建新用户
@@ -139,7 +188,7 @@ public class AuthServiceImpl implements IAuthService {
                 user.setAvatar(request.getAvatarUrl());
                 needUpdate = true;
             }
-            if (StringUtils.hasText(phoneNumber) && !phoneNumber.equals(user.getPhone())) {
+            if (phoneNumber != null && StringUtils.hasText(phoneNumber) && !phoneNumber.equals(user.getPhone())) {
                 user.setPhone(phoneNumber);
                 needUpdate = true;
             }
@@ -154,6 +203,149 @@ public class AuthServiceImpl implements IAuthService {
         }
         
         // 6. 生成令牌（这里需要调整生成令牌的方法，因为User和SysUser结构不同）
+        return generateMiniappUserTokens(user);
+    }
+
+    /**
+     * 小程序登录（支持多种登录方式）
+     *
+     * @param request 小程序登录请求
+     * @return 登录结果
+     */
+    @Override
+    public LoginResult miniappLogin(MiniappLoginRequest request) {
+        switch (request.getLoginType()) {
+            case "wechat":
+                return handleWechatLogin(request);
+            case "password":
+                return handlePasswordLogin(request);
+            case "sms":
+                return handleSmsLogin(request);
+            default:
+                throw new BusinessException(ErrorEnum.PARAM_ERROR.getCode(), "不支持的登录类型: " + request.getLoginType());
+        }
+    }
+
+    /**
+     * 处理微信登录
+     */
+    private LoginResult handleWechatLogin(MiniappLoginRequest request) {
+        if (!StringUtils.hasText(request.getCode())) {
+            throw new BusinessException(ErrorEnum.PARAM_ERROR.getCode(), "微信登录code不能为空");
+        }
+
+        // 1. 通过code获取微信用户信息
+        Map<String, String> wechatUserInfo = wechatService.getWechatUserInfo(request.getCode());
+        String openid = wechatUserInfo.get("openid");
+        String sessionKey = wechatUserInfo.get("session_key");
+        String unionid = wechatUserInfo.get("unionid");
+        
+        // 2. 根据openid查找用户
+        User user = miniappUserService.getByOpenid(openid);
+        
+        // 3. 解密手机号（如果提供了加密数据）
+        String phoneNumber = null;
+        if (StringUtils.hasText(request.getEncryptedData()) && 
+            StringUtils.hasText(request.getIv()) && 
+            StringUtils.hasText(sessionKey)) {
+            try {
+                phoneNumber = wechatService.decryptPhoneNumber(
+                    request.getEncryptedData(), 
+                    request.getIv(), 
+                    sessionKey
+                );
+            } catch (Exception e) {
+                log.warn("手机号解密失败: {}", e.getMessage());
+            }
+        }
+        
+        // 4. 如果用户不存在，则创建新用户
+        if (user == null) {
+            user = new User();
+            user.setOpenid(openid);
+            user.setUnionid(unionid);
+            user.setNickname(StringUtils.hasText(request.getNickName()) ? request.getNickName() : "微信用户");
+            user.setAvatar(request.getAvatarUrl());
+            user.setPhone(phoneNumber);
+            user.setGender(0); // 默认未知
+            
+            miniappUserService.save(user);
+        } else {
+            // 5. 如果用户存在，更新用户信息
+            boolean needUpdate = false;
+            
+            if (StringUtils.hasText(request.getNickName()) && !request.getNickName().equals(user.getNickname())) {
+                user.setNickname(request.getNickName());
+                needUpdate = true;
+            }
+            if (StringUtils.hasText(request.getAvatarUrl()) && !request.getAvatarUrl().equals(user.getAvatar())) {
+                user.setAvatar(request.getAvatarUrl());
+                needUpdate = true;
+            }
+            if (phoneNumber != null && StringUtils.hasText(phoneNumber) && !phoneNumber.equals(user.getPhone())) {
+                user.setPhone(phoneNumber);
+                needUpdate = true;
+            }
+            if (StringUtils.hasText(unionid) && !unionid.equals(user.getUnionid())) {
+                user.setUnionid(unionid);
+                needUpdate = true;
+            }
+            
+            if (needUpdate) {
+                miniappUserService.updateById(user);
+            }
+        }
+        
+        return generateMiniappUserTokens(user);
+    }
+
+    /**
+     * 处理账号密码登录
+     */
+    private LoginResult handlePasswordLogin(MiniappLoginRequest request) {
+        if (!StringUtils.hasText(request.getUsername()) || !StringUtils.hasText(request.getPassword())) {
+            throw new BusinessException(ErrorEnum.PARAM_ERROR.getCode(), "用户名和密码不能为空");
+        }
+
+        // 1. 根据用户名查找用户
+        User user = miniappUserService.getByUsername(request.getUsername());
+        if (user == null) {
+            throw new BusinessException(ErrorEnum.USER_NOT_FOUND);
+        }
+
+        // 2. 验证密码（这里需要实现密码验证逻辑）
+        if (!miniappUserService.verifyPassword(request.getPassword(), user.getPassword())) {
+            throw new BusinessException(ErrorEnum.USERNAME_PASSWORD_ERROR);
+        }
+
+        return generateMiniappUserTokens(user);
+    }
+
+    /**
+     * 处理手机验证码登录
+     */
+    private LoginResult handleSmsLogin(MiniappLoginRequest request) {
+        if (!StringUtils.hasText(request.getPhone()) || !StringUtils.hasText(request.getSmsCode()) || !StringUtils.hasText(request.getSmsKey())) {
+            throw new BusinessException(ErrorEnum.PARAM_ERROR.getCode(), "手机号、验证码和验证码key不能为空");
+        }
+
+        // 1. 验证短信验证码
+        if (!smsService.validateLoginCode(request.getPhone(), request.getSmsCode(), request.getSmsKey())) {
+            throw new BusinessException(ErrorEnum.CAPTCHA_ERROR.getCode(), "验证码错误或已过期");
+        }
+
+        // 2. 根据手机号查找用户
+        User user = miniappUserService.getByPhone(request.getPhone());
+        if (user == null) {
+            // 3. 如果用户不存在，创建新用户
+            user = new User();
+            user.setPhone(request.getPhone());
+            user.setNickname("用户" + request.getPhone().substring(7)); // 使用手机号后4位作为昵称
+            user.setGender(0); // 默认未知
+            
+            miniappUserService.save(user);
+        }
+
         return generateMiniappUserTokens(user);
     }
 
@@ -280,4 +472,4 @@ public class AuthServiceImpl implements IAuthService {
         
         return result;
     }
-} 
+}

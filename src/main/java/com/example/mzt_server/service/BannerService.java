@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 轮播图服务接口
  */
-public interface IBannerService extends IService<Banner> {
+public interface BannerService extends IService<Banner> {
     
     /**
      * 根据位置获取轮播图列表

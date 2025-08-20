@@ -3,7 +3,7 @@ package com.example.mzt_server.controller;
 import com.example.mzt_server.common.Result;
 import com.example.mzt_server.common.vo.LoginResult;
 import com.example.mzt_server.entity.SysUser;
-import com.example.mzt_server.service.ISysUserService;
+import com.example.mzt_server.service.SysUserService;
 import com.example.mzt_server.util.JwtUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,7 +25,7 @@ import java.util.List;
 public class TestTokenController {
 
     @Autowired
-    private ISysUserService userService;
+    private SysUserService userService;
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -72,4 +72,4 @@ public class TestTokenController {
     private String generateLongTermToken(String username, List<String> roles, Long userId, long expiration) {
         return jwtUtils.generateToken(username, roles, userId, expiration);
     }
-} 
+}

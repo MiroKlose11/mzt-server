@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mzt_server.common.Result;
 import com.example.mzt_server.entity.Banner;
-import com.example.mzt_server.service.IBannerService;
+import com.example.mzt_server.service.BannerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,7 +21,7 @@ import java.util.List;
 public class BannerController {
 
     @Autowired
-    private IBannerService bannerService;
+    private BannerService bannerService;
     
     /**
      * 获取轮播图列表（用户端）
@@ -135,4 +135,4 @@ public class BannerController {
         List<Banner> list = bannerService.list(queryWrapper);
         return Result.success(list);
     }
-} 
+}

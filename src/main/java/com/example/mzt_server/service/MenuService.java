@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * 菜单服务接口
  */
-public interface IMenuService {
+public interface MenuService {
     
     /**
      * 获取菜单列表

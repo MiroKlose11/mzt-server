@@ -86,7 +86,32 @@ public enum ErrorEnum {
     /**
      * 微信登录失败
      */
-    WECHAT_LOGIN_ERROR("A0413", "微信登录失败");
+    WECHAT_LOGIN_ERROR("A0413", "微信登录失败"),
+    
+    /**
+     * 短信发送过于频繁
+     */
+    SMS_TOO_FREQUENT("A0414", "短信发送过于频繁，请稍后再试"),
+    
+    /**
+     * 短信发送失败
+     */
+    SMS_SEND_FAILED("A0415", "短信发送失败，请稍后重试"),
+    
+    /**
+     * 手机号格式错误
+     */
+    PHONE_FORMAT_ERROR("A0416", "手机号格式错误"),
+    
+    /**
+     * 验证码错误或已过期
+     */
+    SMS_CODE_ERROR("A0417", "验证码错误或已过期"),
+    
+    /**
+     * 手机号已存在
+     */
+    PHONE_ALREADY_EXISTS("A0418", "手机号已注册，请直接登录");
 
     /**
      * 错误码
@@ -108,4 +133,4 @@ public enum ErrorEnum {
         this.code = code;
         this.message = message;
     }
-} 
+}

@@ -6,7 +6,7 @@ import com.example.mzt_server.common.vo.MenuVO;
 import com.example.mzt_server.common.vo.MenuForm;
 import com.example.mzt_server.common.vo.OptionLong;
 import com.example.mzt_server.entity.SysMenu;
-import com.example.mzt_server.service.IMenuService;
+import com.example.mzt_server.service.MenuService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import java.util.List;
 public class MenuController {
 
     @Autowired
-    private IMenuService menuService;
+    private MenuService menuService;
 
     @Operation(summary = "菜单路由列表", description = "获取当前用户菜单路由列表")
     @GetMapping("/routes")
@@ -92,4 +92,4 @@ public class MenuController {
         boolean success = menuService.updateMenuVisible(menuId, visible);
         return success ? Result.success() : Result.failed();
     }
-} 
+}

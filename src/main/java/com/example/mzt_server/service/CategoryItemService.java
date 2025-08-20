@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 分类条目服务接口
  */
-public interface ICategoryItemService extends IService<CategoryItem> {
+public interface CategoryItemService extends IService<CategoryItem> {
     
     /**
      * 根据分类类型获取条目列表

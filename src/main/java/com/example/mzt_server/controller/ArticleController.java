@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mzt_server.common.Result;
 import com.example.mzt_server.entity.Article;
 import com.example.mzt_server.entity.ArticleContent;
-import com.example.mzt_server.service.IArticleContentService;
-import com.example.mzt_server.service.IArticleService;
+import com.example.mzt_server.service.ArticleContentService;
+import com.example.mzt_server.service.ArticleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -24,9 +24,9 @@ import org.springframework.web.bind.annotation.*;
 public class ArticleController {
 
     @Autowired
-    private IArticleService articleService;
+    private ArticleService articleService;
     @Autowired
-    private IArticleContentService articleContentService;
+    private ArticleContentService articleContentService;
 
     /**
      * 新增文章

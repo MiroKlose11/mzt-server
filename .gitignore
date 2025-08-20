@@ -31,3 +31,22 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### 环境变量和敏感配置文件 ###
+.env
+.env.local
+.env.prod
+.env.dev
+.env.*.local
+
+### 日志文件 ###
+logs/
+*.log
+
+### 临时文件 ###
+*.tmp
+*.temp
+
+### 系统文件 ###
+.DS_Store
+Thumbs.db

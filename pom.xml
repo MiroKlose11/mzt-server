@@ -12,7 +12,7 @@
 	<artifactId>mzt-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mzt-server</name>
-	<description>美职通CMS后台管理系统</description>
+	<description>美链体平台后端</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -40,6 +40,17 @@
 			<id>aliyun</id>
 			<name>Aliyun Maven Repository</name>
 			<url>https://maven.aliyun.com/repository/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>Maven Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -79,8 +90,6 @@
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
-			<version>${mysql.version}</version>
-			<scope>runtime</scope>
 		</dependency>
 		
 		<!-- MyBatis Plus 依赖 -->
@@ -140,13 +149,6 @@
 			<version>4.3.0</version>
 		</dependency>
 		
-		<!-- Jakarta Annotation API -->
-		<dependency>
-			<groupId>jakarta.annotation</groupId>
-			<artifactId>jakarta.annotation-api</artifactId>
-			<version>2.1.1</version>
-		</dependency>
-		
 		<!-- Jakarta Servlet API -->
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
@@ -169,14 +171,12 @@
 		
 		<!-- JAXB API -->
 		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.3.1</version>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>2.3.1</version>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
 		</dependency>
 		
 		<!-- Redis -->
@@ -196,7 +196,6 @@
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>2.10.1</version>
 		</dependency>
 
 		<!-- 腾讯云COS SDK -->
@@ -217,14 +216,25 @@
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
-			<version>1.15</version>
 		</dependency>
 		
 		<!-- HTTP客户端 -->
 		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.14</version>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+		</dependency>
+		
+		<!-- 腾讯云SDK核心包 -->
+		<dependency>
+			<groupId>com.tencentcloudapi</groupId>
+			<artifactId>tencentcloud-sdk-java</artifactId>
+			<version>3.1.600</version>
+		</dependency>
+		<!-- 腾讯云短信SDK -->
+		<dependency>
+			<groupId>com.tencentcloudapi</groupId>
+			<artifactId>tencentcloud-sdk-java-sms</artifactId>
+			<version>3.1.1281</version>
 		</dependency>
 	</dependencies>
 

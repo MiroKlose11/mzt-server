@@ -3,6 +3,7 @@ package com.example.mzt_server.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -12,7 +13,8 @@ import java.time.LocalDateTime;
 @Data
 @TableName("user")
 public class User implements Serializable {
-    
+
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
@@ -50,6 +52,21 @@ public class User implements Serializable {
      * 手机号
      */
     private String phone;
+    
+    /**
+     * 密码（账号密码登录时使用）
+     */
+    private String password;
+    
+    /**
+     * 用户名（账号密码登录时使用）
+     */
+    private String username;
+    
+    /**
+     * 认证类型（none=未认证，personal=个人认证，enterprise=企业认证）
+     */
+    private String certificationType;
     
     /**
      * 创建时间

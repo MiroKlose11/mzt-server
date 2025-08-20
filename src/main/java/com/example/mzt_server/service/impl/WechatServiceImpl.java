@@ -3,7 +3,7 @@ package com.example.mzt_server.service.impl;
 import com.example.mzt_server.common.exception.BusinessException;
 import com.example.mzt_server.common.exception.ErrorEnum;
 import com.example.mzt_server.config.WechatConfig;
-import com.example.mzt_server.service.IWechatService;
+import com.example.mzt_server.service.WechatService;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
@@ -24,7 +24,7 @@ import java.util.Map;
  */
 @Slf4j
 @Service
-public class WechatServiceImpl implements IWechatService {
+public class WechatServiceImpl implements WechatService {
 
     @Autowired
     private WechatConfig wechatConfig;
@@ -64,6 +64,7 @@ public class WechatServiceImpl implements IWechatService {
             }
 
             // 解析响应
+            @SuppressWarnings("unchecked")
             Map<String, Object> result = gson.fromJson(response, Map.class);
 
             // 检查是否有错误
@@ -143,6 +144,7 @@ public class WechatServiceImpl implements IWechatService {
             log.info("解密后的数据: {}", decryptedData);
 
             // 解析JSON获取手机号
+            @SuppressWarnings("unchecked")
             Map<String, Object> phoneInfo = gson.fromJson(decryptedData, Map.class);
             String phoneNumber = (String) phoneInfo.get("phoneNumber");
 

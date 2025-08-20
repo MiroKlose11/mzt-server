@@ -8,7 +8,7 @@ import com.example.mzt_server.common.vo.VisitTrendVO;
 /**
  * 日志服务接口
  */
-public interface ILogService {
+public interface LogService {
     
     /**
      * 获取访问统计数据

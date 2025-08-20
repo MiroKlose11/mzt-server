@@ -1,7 +1,7 @@
 package com.example.mzt_server.service.impl;
 
 import com.example.mzt_server.common.vo.CaptchaInfo;
-import com.example.mzt_server.service.ICaptchaService;
+import com.example.mzt_server.service.CaptchaService;
 import com.google.code.kaptcha.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * 验证码服务实现类
  */
 @Service
-public class CaptchaServiceImpl implements ICaptchaService {
+public class CaptchaServiceImpl implements CaptchaService {
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
@@ -107,4 +107,4 @@ public class CaptchaServiceImpl implements ICaptchaService {
             throw new RuntimeException("验证码图片转Base64失败", e);
         }
     }
-} 
+}

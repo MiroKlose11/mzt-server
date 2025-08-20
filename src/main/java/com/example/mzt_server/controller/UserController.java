@@ -4,7 +4,7 @@ import com.example.mzt_server.common.Result;
 import com.example.mzt_server.common.exception.BusinessException;
 import com.example.mzt_server.common.exception.ErrorEnum;
     import com.example.mzt_server.common.vo.UserProfileForm;
-import com.example.mzt_server.service.ISysUserService;
+import com.example.mzt_server.service.SysUserService;
 import com.example.mzt_server.util.JwtUtils;
 import io.jsonwebtoken.Claims;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,7 +30,7 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    private ISysUserService userService;
+    private SysUserService userService;
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -117,4 +117,4 @@ public class UserController {
         }
         return null;
     }
-} 
+}

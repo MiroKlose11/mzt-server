@@ -1,6 +1,5 @@
 package com.example.mzt_server.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -9,12 +8,10 @@ import com.example.mzt_server.entity.Organization;
 import com.example.mzt_server.entity.Student;
 import com.example.mzt_server.mapper.OrganizationMapper;
 import com.example.mzt_server.mapper.StudentMapper;
-import com.example.mzt_server.service.OrganizationService;
 import com.example.mzt_server.service.StudentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,8 +23,9 @@ import java.util.stream.Collectors;
 @Service
 public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements StudentService {
     
-    @Autowired
-    private OrganizationService organizationService;
+    // 移除未使用的字段
+    // @Autowired
+    // private OrganizationService organizationService;
     
     @Autowired
     private OrganizationMapper organizationMapper;
@@ -109,4 +107,4 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
         
         return dto;
     }
-} 
+}

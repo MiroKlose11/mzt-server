@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * 系统用户服务接口
  */
-public interface ISysUserService extends IService<SysUser> {
+public interface SysUserService extends IService<SysUser> {
 
     /**
      * 根据用户名查询用户

@@ -3,7 +3,7 @@ package com.example.mzt_server.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.mzt_server.entity.Article;
 import com.example.mzt_server.mapper.ArticleMapper;
-import com.example.mzt_server.service.IArticleService;
+import com.example.mzt_server.service.ArticleService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * 实现文章的基础增删改查服务
  */
 @Service
-public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements IArticleService {
+public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements ArticleService {
     
     @Override
     public boolean incrementViews(Long id) {
@@ -27,4 +27,4 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         // 更新文章
         return updateById(article);
     }
-} 
+}

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mzt_server.common.Result;
 import com.example.mzt_server.entity.CategoryItem;
-import com.example.mzt_server.service.ICategoryItemService;
+import com.example.mzt_server.service.CategoryItemService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 public class CategoryItemController {
 
     @Autowired
-    private ICategoryItemService categoryItemService;
+    private CategoryItemService categoryItemService;
 
     /**
      * 获取分类条目列表（用户端）
@@ -149,4 +149,4 @@ public class CategoryItemController {
                 .collect(Collectors.toList());
         return Result.success(types);
     }
-} 
+}

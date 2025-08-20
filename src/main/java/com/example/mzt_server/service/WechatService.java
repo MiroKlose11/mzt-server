@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * 微信服务接口
  */
-public interface IWechatService {
+public interface WechatService {
     
     /**
      * 通过code获取微信用户的openid

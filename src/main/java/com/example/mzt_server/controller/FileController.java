@@ -38,7 +38,7 @@ public class FileController {
     @Operation(summary = "上传文件", description = "上传文件到腾讯云COS")
     @PostMapping("/upload")
     public Result<String> uploadFile(
-            @Parameter(description = "要上传的文件") @RequestParam("file") MultipartFile file,
+            @Parameter(description = "要上传的文件") @RequestParam MultipartFile file,
             @Parameter(description = "上传到COS的目录路径 (可选, e.g., 'images/articles/')") @RequestParam(required = false) String directory) {
         if (file.isEmpty()) {
             return Result.error("上传失败，请选择文件");

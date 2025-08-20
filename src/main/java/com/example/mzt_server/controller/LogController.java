@@ -5,7 +5,7 @@ import com.example.mzt_server.common.vo.VisitStatsVO;
 import com.example.mzt_server.common.vo.VisitTrendVO;
 import com.example.mzt_server.common.vo.PageResult;
 import com.example.mzt_server.common.vo.LogPageVO;
-import com.example.mzt_server.service.ILogService;
+import com.example.mzt_server.service.LogService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LogController {
 
     @Autowired
-    private ILogService logService;
+    private LogService logService;
 
     @Operation(summary = "获取访问统计", description = "获取系统访问量统计数据")
     @GetMapping("/visit-stats")
@@ -32,8 +32,8 @@ public class LogController {
     @Operation(summary = "获取访问趋势", description = "获取系统访问趋势数据")
     @GetMapping("/visit-trend")
     public Result<VisitTrendVO> getVisitTrend(
-            @RequestParam("startDate") String startDate,
-            @RequestParam("endDate") String endDate) {
+            @RequestParam String startDate,
+            @RequestParam String endDate) {
         VisitTrendVO trend = logService.getVisitTrend(startDate, endDate);
         return Result.success(trend);
     }
@@ -43,8 +43,8 @@ public class LogController {
     public Result<PageResult<LogPageVO>> getLogPage(
             @RequestParam(required = false) String keywords,
             @RequestParam(required = false) String createTime,
-            @RequestParam("pageNum") Integer pageNum,
-            @RequestParam("pageSize") Integer pageSize) {
+            @RequestParam Integer pageNum,
+            @RequestParam Integer pageSize) {
         PageResult<LogPageVO> pageResult = logService.getLogPage(keywords, createTime, pageNum, pageSize);
         return Result.success(pageResult);
     }

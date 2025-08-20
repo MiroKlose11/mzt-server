@@ -8,7 +8,7 @@ import com.example.mzt_server.entity.SysLog;
 import com.example.mzt_server.entity.VisitStats;
 import com.example.mzt_server.mapper.SysLogMapper;
 import com.example.mzt_server.mapper.VisitStatsMapper;
-import com.example.mzt_server.service.ILogService;
+import com.example.mzt_server.service.LogService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ import java.util.List;
  * 日志服务实现类
  */
 @Service
-public class LogServiceImpl implements ILogService {
+public class LogServiceImpl implements LogService {
 
     @Autowired
     private VisitStatsMapper visitStatsMapper;
@@ -233,4 +233,4 @@ public class LogServiceImpl implements ILogService {
         
         return new PageResult<>(voList, total);
     }
-} 
+}

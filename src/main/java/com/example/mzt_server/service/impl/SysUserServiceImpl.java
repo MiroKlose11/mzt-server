@@ -7,7 +7,7 @@ import com.example.mzt_server.common.exception.ErrorEnum;
 import com.example.mzt_server.common.vo.UserProfileForm;
 import com.example.mzt_server.entity.SysUser;
 import com.example.mzt_server.mapper.SysUserMapper;
-import com.example.mzt_server.service.ISysUserService;
+import com.example.mzt_server.service.SysUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,7 +22,7 @@ import java.util.Map;
  * 系统用户服务实现类
  */
 @Service
-public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
+public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -148,4 +148,4 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         
         return profileForm;
     }
-} 
+}
