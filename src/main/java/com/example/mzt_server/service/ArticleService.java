@@ -15,4 +15,4 @@ public interface ArticleService extends IService<Article> {
      * @return 是否成功
      */
     boolean incrementViews(Long id);
-} 
+}

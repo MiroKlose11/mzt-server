@@ -27,6 +27,14 @@ public interface SysUserService extends IService<SysUser> {
      * @return 用户信息
      */
     SysUser getByOpenid(String openid);
+    
+    /**
+     * 根据手机号查询用户
+     *
+     * @param phone 手机号
+     * @return 用户信息
+     */
+    SysUser getByPhone(String phone);
 
     /**
      * 验证密码
@@ -68,4 +76,4 @@ public interface SysUserService extends IService<SysUser> {
      * @return 用户个人信息
      */
     UserProfileForm getUserProfile(Long userId);
-} 
+}

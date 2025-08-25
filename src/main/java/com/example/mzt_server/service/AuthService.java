@@ -66,4 +66,12 @@ public interface AuthService {
      * @return 是否成功
      */
     boolean logout(String token);
+    
+    /**
+     * 重置密码
+     *
+     * @param request 重置密码请求
+     * @return 是否成功
+     */
+    boolean resetPassword(com.example.mzt_server.common.vo.ResetPasswordRequest request);
 }

@@ -8,4 +8,4 @@ import com.example.mzt_server.entity.ArticleContent;
  * 提供文章内容的基础增删改查服务
  */
 public interface ArticleContentService extends IService<ArticleContent> {
-} 
+}

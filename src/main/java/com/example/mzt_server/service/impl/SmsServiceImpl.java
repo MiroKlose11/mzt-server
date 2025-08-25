@@ -112,6 +112,78 @@ public class SmsServiceImpl implements SmsService {
         return isValid;
     }
     
+    @Override
+    public String sendResetPasswordCode(String phone) {
+        // 1. 验证手机号格式
+        if (!isValidPhone(phone)) {
+            throw new BusinessException(ErrorEnum.PHONE_FORMAT_ERROR);
+        }
+        
+        // 2. 检查发送频率限制
+        checkRateLimit(phone);
+        
+        // 3. 生成6位随机验证码
+        String code = generateCode();
+        
+        // 4. 生成验证码key（使用UUID确保唯一性）
+        String key = "sms:reset:" + phone + ":" + UUID.randomUUID().toString();
+        
+        // 5. 将验证码存储到Redis，5分钟有效期
+        redisTemplate.opsForValue().set(key, code, 5, TimeUnit.MINUTES);
+        
+        try {
+            // 6. 调用腾讯云短信服务发送验证码
+            sendSmsViaTencent(phone, code);
+            
+            // 7. 设置发送频率限制
+            setRateLimit(phone);
+            
+            log.info("重置密码验证码发送成功，手机号: {}, key: {}", phone, key);
+            return key;
+            
+        } catch (Exception e) {
+            // 发送失败时删除已存储的验证码
+            redisTemplate.delete(key);
+            log.error("重置密码短信发送失败，手机号: {}, 错误: {}", phone, e.getMessage(), e);
+            throw new BusinessException(ErrorEnum.SMS_SEND_FAILED);
+        }
+    }
+    
+    @Override
+    public boolean validateResetPasswordCode(String phone, String code, String key) {
+        // 1. 参数验证
+        if (!StringUtils.hasText(phone) || !StringUtils.hasText(code) || !StringUtils.hasText(key)) {
+            throw new BusinessException(ErrorEnum.PARAM_ERROR);
+        }
+        
+        // 2. 验证手机号格式
+        if (!isValidPhone(phone)) {
+            throw new BusinessException(ErrorEnum.PHONE_FORMAT_ERROR);
+        }
+        
+        // 3. 从Redis获取验证码
+        String storedCode = redisTemplate.opsForValue().get(key);
+        
+        if (storedCode == null) {
+            log.warn("重置密码验证码已过期或不存在，手机号: {}, key: {}", phone, key);
+            throw new BusinessException(ErrorEnum.SMS_CODE_ERROR);
+        }
+        
+        // 4. 验证码匹配
+        boolean isValid = storedCode.equals(code);
+        
+        if (isValid) {
+            // 验证成功后删除验证码
+            redisTemplate.delete(key);
+            log.info("重置密码验证码验证成功，手机号: {}", phone);
+        } else {
+            log.warn("重置密码验证码验证失败，手机号: {}, 输入验证码: {}", phone, code);
+            throw new BusinessException(ErrorEnum.SMS_CODE_ERROR);
+        }
+        
+        return isValid;
+    }
+    
     /**
      * 生成6位随机验证码（使用安全随机数）
      */

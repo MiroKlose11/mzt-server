@@ -22,4 +22,4 @@ public interface CaptchaService {
      * @return 是否有效
      */
     boolean validateCaptcha(String captchaKey, String captchaCode);
-} 
+}

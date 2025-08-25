@@ -54,6 +54,19 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         wrapper.eq(SysUser::getOpenid, openid);
         return getOne(wrapper);
     }
+    
+    /**
+     * 根据手机号查询用户
+     *
+     * @param phone 手机号
+     * @return 用户信息
+     */
+    @Override
+    public SysUser getByPhone(String phone) {
+        LambdaQueryWrapper<SysUser> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(SysUser::getMobile, phone);
+        return getOne(wrapper);
+    }
 
     /**
      * 验证密码

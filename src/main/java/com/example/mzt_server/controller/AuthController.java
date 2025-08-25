@@ -7,6 +7,7 @@ import com.example.mzt_server.common.vo.LoginResult;
 import com.example.mzt_server.common.vo.RegisterRequest;
 import com.example.mzt_server.common.vo.WechatLoginRequest;
 import com.example.mzt_server.common.vo.MiniappLoginRequest;
+import com.example.mzt_server.common.vo.ResetPasswordRequest;
 import com.example.mzt_server.service.AuthService;
 import com.example.mzt_server.service.SmsService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -107,5 +108,25 @@ public class AuthController {
     public Result<Object> logout(@RequestHeader("Authorization") String token) {
         authService.logout(token);
         return Result.success(null);
+    }
+    
+    /**
+     * 发送重置密码验证码
+     */
+    @Operation(summary = "发送重置密码验证码", description = "发送重置密码短信验证码")
+    @PostMapping("/send-reset-sms")
+    public Result<String> sendResetPasswordSms(@RequestParam String phone) {
+        String key = smsService.sendResetPasswordCode(phone);
+        return Result.success(key);
+    }
+    
+    /**
+     * 重置密码
+     */
+    @Operation(summary = "重置密码", description = "通过短信验证码重置密码")
+    @PostMapping("/reset-password")
+    public Result<Object> resetPassword(@Validated @RequestBody ResetPasswordRequest request) {
+        boolean success = authService.resetPassword(request);
+        return Result.success(success);
     }
 }

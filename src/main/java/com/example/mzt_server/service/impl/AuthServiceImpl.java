@@ -472,4 +472,70 @@ public class AuthServiceImpl implements AuthService {
         
         return result;
     }
+    
+    @Override
+    public boolean resetPassword(com.example.mzt_server.common.vo.ResetPasswordRequest request) {
+        // 1. 参数验证
+        if (request == null) {
+            throw new BusinessException(ErrorEnum.PARAM_ERROR);
+        }
+        
+        String phone = request.getPhone();
+        String smsCode = request.getSmsCode();
+        String newPassword = request.getNewPassword();
+        String confirmPassword = request.getConfirmPassword();
+        String smsKey = request.getSmsKey();
+        
+        // 2. 验证必填参数
+        if (!StringUtils.hasText(phone) || !StringUtils.hasText(smsCode) || 
+            !StringUtils.hasText(newPassword) || !StringUtils.hasText(confirmPassword) || 
+            !StringUtils.hasText(smsKey)) {
+            throw new BusinessException(ErrorEnum.PARAM_ERROR);
+        }
+        
+        // 3. 验证两次密码是否一致
+        if (!newPassword.equals(confirmPassword)) {
+            throw new BusinessException(ErrorEnum.PASSWORD_NOT_MATCH);
+        }
+        
+        // 4. 验证短信验证码
+        boolean isValidCode = smsService.validateResetPasswordCode(phone, smsCode, smsKey);
+        if (!isValidCode) {
+            throw new BusinessException(ErrorEnum.SMS_CODE_ERROR);
+        }
+        
+        // 5. 查找用户（先查小程序用户，再查后台用户）
+        User miniappUser = miniappUserService.getByPhone(phone);
+        SysUser sysUser = userService.getByPhone(phone);
+        
+        if (miniappUser == null && sysUser == null) {
+            throw new BusinessException(ErrorEnum.USER_NOT_FOUND);
+        }
+        
+        // 6. 加密新密码
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodedPassword = encoder.encode(newPassword);
+        
+        boolean updateSuccess = false;
+        
+        // 7. 更新密码（优先更新小程序用户）
+        if (miniappUser != null) {
+            miniappUser.setPassword(encodedPassword);
+            miniappUser.setUpdatedAt(LocalDateTime.now());
+            updateSuccess = miniappUserService.updateById(miniappUser);
+            log.info("小程序用户密码重置成功，手机号: {}, 用户ID: {}", phone, miniappUser.getId());
+        } else if (sysUser != null) {
+            sysUser.setPassword(encodedPassword);
+            sysUser.setUpdateTime(LocalDateTime.now());
+            updateSuccess = userService.updateById(sysUser);
+            log.info("后台用户密码重置成功，手机号: {}, 用户ID: {}", phone, sysUser.getId());
+        }
+        
+        if (!updateSuccess) {
+            log.error("密码重置失败，数据库更新失败，手机号: {}", phone);
+            throw new BusinessException(ErrorEnum.SYSTEM_ERROR);
+        }
+        
+        return true;
+    }
 }

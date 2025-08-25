@@ -111,7 +111,12 @@ public enum ErrorEnum {
     /**
      * 手机号已存在
      */
-    PHONE_ALREADY_EXISTS("A0418", "手机号已注册，请直接登录");
+    PHONE_ALREADY_EXISTS("A0418", "手机号已注册，请直接登录"),
+    
+    /**
+     * 两次密码不一致
+     */
+    PASSWORD_NOT_MATCH("A0419", "两次输入的密码不一致");
 
     /**
      * 错误码
