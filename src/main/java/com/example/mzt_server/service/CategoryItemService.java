@@ -17,4 +17,4 @@ public interface CategoryItemService extends IService<CategoryItem> {
      * @return 条目列表
      */
     List<CategoryItem> getItemsByCategoryType(String type);
-} 
+}

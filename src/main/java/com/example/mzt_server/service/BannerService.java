@@ -17,4 +17,4 @@ public interface BannerService extends IService<Banner> {
      * @return 轮播图列表
      */
     List<Banner> getBannersByPosition(Integer position);
-} 
+}

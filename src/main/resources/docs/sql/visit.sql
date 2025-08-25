@@ -96,4 +96,4 @@ VALUES
 INSERT INTO `sys_log` 
 (`module`, `content`, `request_uri`, `method`, `ip`, `region`, `browser`, `os`, `execution_time`, `create_by`, `create_time`, `operator`)
 VALUES 
-('EXCEPTION', '系统异常', '/api/error', 'GET', '192.168.1.5', '杭州', 'Chrome', 'Android', 356, 2, NOW(), 'test_user'); 
+('EXCEPTION', '系统异常', '/api/error', 'GET', '192.168.1.5', '杭州', 'Chrome', 'Android', 356, 2, NOW(), 'test_user');
