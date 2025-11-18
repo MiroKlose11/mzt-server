@@ -35,18 +35,54 @@ src/main/
 
 - 首页Banner管理
 - 首页分类条目管理（服务项目、执业规范平台、主推课程、岗位百科）
+- **全局搜索功能**（支持文章、成员、课程、机构、学生等多类型搜索）
+- 文章管理
+- 成员管理
+- 课程管理
+- 机构管理
+- 学生管理
+- 用户认证与授权
+- 文件上传（腾讯云COS）
+- 短信验证码（腾讯云SMS）
+- 微信登录集成
 
 ## 接口设计
 
-本项目采用REST风格的API设计，所有首页相关接口均通过`/index`统一入口提供：
+本项目采用REST风格的API设计，主要接口包括：
 
+### 首页相关接口
 - `/index/banner/top` - 获取顶部Banner
 - `/index/banner/introduction` - 获取平台介绍Banner
 - `/index/category?type=xxx` - 获取指定类型的分类数据
 - `/index/categories` - 获取所有分类数据
 - `/index/all` - 一次性获取所有首页数据
 
-更多接口详情请参考 `docs/index-api.md` 文档。
+### 搜索接口 ⭐新增
+- `POST /search` - 全局搜索（推荐）
+- `GET /search` - 全局搜索（GET方式）
+
+支持搜索类型：
+- `article` - 文章
+- `member` - 成员
+- `course` - 课程
+- `organization` - 机构
+- `student` - 学生
+
+**搜索功能文档**：
+- [API 使用文档](docs/SEARCH_API.md)
+- [功能实现总结](docs/SEARCH_FEATURE_SUMMARY.md)
+- [前端集成指南](docs/FRONTEND_INTEGRATION.md)
+
+### 其他接口
+- `/article/*` - 文章管理
+- `/member/*` - 成员管理
+- `/course/*` - 课程管理
+- `/organization/*` - 机构管理
+- `/student/*` - 学生管理
+- `/auth/*` - 认证授权
+- `/file/*` - 文件上传
+
+更多接口详情请参考 Swagger 文档：`http://localhost:8080/doc.html`
 
 ## 快速开始
 

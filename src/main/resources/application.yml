@@ -196,8 +196,8 @@ logging:
 
 # JWT配置
 jwt:
-  # 密钥
-  secret: ${JWT_SECRET:}
+  # 密钥（必须在.env文件中配置JWT_SECRET）
+  secret: ${JWT_SECRET}
   # 访问令牌过期时间(秒)
   access-token-expiration: ${JWT_ACCESS_EXPIRATION:86400}
   # 刷新令牌过期时间(秒)
@@ -231,3 +231,9 @@ tencent:
       per-minute: ${SMS_RATE_PER_MINUTE:1}        # 每分钟最多发送次数
       per-hour: ${SMS_RATE_PER_HOUR:5}          # 每小时最多发送次数  
       per-day: ${SMS_RATE_PER_DAY:10}          # 每天最多发送次数
+
+# 微信小程序配置
+wechat:
+  miniapp:
+    appId: ${WECHAT_MINIAPP_APPID:}
+    secret: ${WECHAT_MINIAPP_SECRET:}
